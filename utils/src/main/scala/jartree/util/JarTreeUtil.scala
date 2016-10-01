@@ -19,7 +19,7 @@ case class MavenJarKeyImpl(
   groupId: String,
   artifactId: String,
   version: String,
-  classifierOpt: Option[String]
+  classifierOpt: Option[String] = None
 ) extends CaseJarKey
 
 object MavenJarKeyImpl {
@@ -35,11 +35,15 @@ object MavenJarKeyImpl {
     )
   }
 
+  implicit def key2loaderKey(key: MavenJarKeyImpl) : CaseClassLoaderKey = {
+    CaseClassLoaderKey(key)
+  }
+
 }
 
 case class CaseClassLoaderKey(
   jar: CaseJarKey,
-  dependenciesSeq: Seq[CaseClassLoaderKey]
+  dependenciesSeq: Seq[CaseClassLoaderKey] = Seq()
 )
 
 

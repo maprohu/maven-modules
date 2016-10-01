@@ -77,7 +77,8 @@ object RunGenerateMaven {
     "com.github.yannrichet:JMathPlot:jar:1.0.1",
     "ch.qos.logback:logback-classic:jar:1.1.7",
     "osgi6:osgi6-api:jar:1.0.10",
-    "org.scala-lang:scala-compiler:jar:2.11.8"
+    "org.scala-lang:scala-compiler:jar:2.11.8",
+    "org.apache.maven.shared:maven-invoker:2.2"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")

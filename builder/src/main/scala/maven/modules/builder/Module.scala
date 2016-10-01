@@ -91,6 +91,9 @@ case class Module(
 //}
 
 object Module {
+  implicit def maven2module(key: MavenJarKeyImpl) : Module = {
+    CaseClassLoaderKey(key)
+  }
 //  implicit def classLoaderKey2Module(clk: ClassLoaderKey) : Module = {
 //    new ExternalModule(
 //      clk.jar.groupId,
