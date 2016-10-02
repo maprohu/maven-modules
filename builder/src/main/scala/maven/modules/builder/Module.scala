@@ -9,6 +9,7 @@ import org.eclipse.aether.version.Version
 import sbt.io.IO
 
 import scala.xml.PrettyPrinter
+import scala.collection.immutable._
 
 /**
   * Created by pappmar on 29/08/2016.
@@ -157,7 +158,7 @@ object Module {
         ),
         versionScheme.parseVersion(namedModule.version)
       ),
-      namedModule.deps
+      namedModule.deps.to[Seq]
     )
   }
 
