@@ -79,7 +79,15 @@ object RunGenerateMaven {
     "ch.qos.logback:logback-classic:jar:1.1.7",
     "osgi6:osgi6-api:jar:1.0.10",
     "org.scala-lang:scala-compiler:jar:2.11.8",
-    "org.apache.maven.shared:maven-invoker:2.2"
+    "org.apache.maven.shared:maven-invoker:2.2",
+    "emsa.ssn:ssn-vdm-support:jar:1.0.5.2",
+    "emsa.ssn:ssn-spm-domain:jar:1.0.5.2",
+    "emsa.ssn:ssn-ais:jar:1.0.5.2",
+    "it.acsys.imdate:imdate-ship-types:jar:1.0.2",
+    "com.google.code.gson:gson:jar:2.7",
+    "org.springframework:spring-messaging:jar:4.3.3.RELEASE",
+    "com.google.guava:guava:jar:19.0",
+    "org.springframework:spring-core:jar:3.2.17.RELEASE"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")
@@ -137,7 +145,7 @@ object RunGenerateMaven {
 
   def main(args: Array[String]): Unit = {
     root.mkdirs()
-//    IO.delete(root)
+    IO.delete(root)
     root.mkdirs()
 
 

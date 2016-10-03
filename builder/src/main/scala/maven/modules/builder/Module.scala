@@ -3,7 +3,7 @@ package maven.modules.builder
 import java.io.File
 
 import jartree.util.{CaseClassLoaderKey, CaseJarKey, HashJarKeyImpl, MavenJarKeyImpl}
-import maven.modules.builder.Module.DeployableModule
+import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -227,10 +227,32 @@ object Module {
     </dependency>
   }
 
+  sealed class JavaVersion(
+    val value : String
+  )
+  case object Java6 extends JavaVersion("1.6")
+  case object Java7 extends JavaVersion("1.7")
+  case object Java8 extends JavaVersion("1.8")
+
+  case class ConfiguredModule(
+    module: NamedModule,
+    javaVersion : JavaVersion
+  )
+
+  object ConfiguredModule {
+    implicit def named2configured(module: NamedModule) : ConfiguredModule = ConfiguredModule(module, Java6)
+
+    implicit class NamedOps(namedModule: NamedModule) {
+      def java7 : ConfiguredModule = ConfiguredModule(namedModule, Java7)
+    }
+  }
+
   def generate(
     roots: Seq[PlacedRoot],
-    modules: Seq[NamedModule]
+    configuredModules: Seq[ConfiguredModule]
   ) : Unit = {
+    val modules = configuredModules.map(_.module)
+
     val containedContainers =
       modules
         .flatMap(_.container.toContainedSeq)
@@ -317,8 +339,9 @@ object Module {
         )
       })
 
-    modules
-      .foreach({ module =>
+    configuredModules
+      .foreach({ configuredModule =>
+        import configuredModule._
         val dir =
           new File(
             module
@@ -367,8 +390,8 @@ object Module {
                   <artifactId>maven-compiler-plugin</artifactId>
                   <version>3.5.1</version>
                   <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>{javaVersion.value}</source>
+                    <target>{javaVersion.value}</target>
                   </configuration>
                 </plugin>
                 <plugin>
@@ -488,6 +511,7 @@ class NamedModule(
   def groupId = container.root.groupId
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
+  def java7 = ConfiguredModule(this, Java7)
 }
 
 class JavaModule(
