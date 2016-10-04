@@ -87,7 +87,8 @@ object RunGenerateMaven {
     "com.google.code.gson:gson:jar:2.7",
     "org.springframework:spring-messaging:jar:4.3.3.RELEASE",
     "com.google.guava:guava:jar:19.0",
-    "org.springframework:spring-core:jar:3.2.17.RELEASE"
+    "org.springframework:spring-core:jar:3.2.17.RELEASE",
+    "com.fasterxml.jackson.core:jackson-databind:jar:2.7.4"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")
