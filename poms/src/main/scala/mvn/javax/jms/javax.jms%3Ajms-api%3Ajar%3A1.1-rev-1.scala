@@ -1,10 +1,7 @@
 
 package mvn
 
-object `javax.jms:jms-api:jar:1.1-rev-1` extends _root_.jartree.util.CaseClassLoaderKey(
-  jar = _root_.jartree.util.MavenJarKeyImpl("javax.jms:jms-api:jar:1.1-rev-1"),
-  dependenciesSeq = collection.immutable.Seq(
-    
-  )
+object `javax.jms:jms-api:jar:1.1-rev-1` extends _root_.maven.modules.utils.MavenCentralModule(
+  "javax.jms:jms-api:jar:1.1-rev-1"
 )
          

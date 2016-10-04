@@ -117,15 +117,21 @@ object RunGenerateMaven {
 
     if (!file.exists()) {
 
+      val canonicalArg = s""""${canonical}""""
+      val depsArgs = deps.map(d => s"`${d.getCoordinate.toCanonicalForm}`")
+
+      val args =
+        (canonicalArg +: depsArgs)
+          .map(a => s"  ${a}")
+          .mkString(",\n")
+
+
       val content =
         s"""
            |package mvn
            |
-           |object `${canonical}` extends _root_.jartree.util.CaseClassLoaderKey(
-           |  jar = _root_.jartree.util.MavenJarKeyImpl("${canonical}"),
-           |  dependenciesSeq = collection.immutable.Seq(
-           |    ${deps.map(d => s"`${d.getCoordinate.toCanonicalForm}`").mkString(",\n    ")}
-           |  )
+           |object `${canonical}` extends _root_.maven.modules.utils.MavenCentralModule(
+           |${args}
            |)
          """.stripMargin
 

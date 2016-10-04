@@ -2,8 +2,8 @@ package maven.modules.builder
 
 import java.io.File
 
-import jartree.util.{CaseClassLoaderKey, CaseJarKey, HashJarKeyImpl, MavenJarKeyImpl}
 import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7}
+import maven.modules.utils.MavenCentralModule
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -46,38 +46,27 @@ import scala.collection.immutable._
 //  override def deps: Seq[Module] = module.deps
 //}
 
-trait ModuleId
-trait ModuleVersion extends Comparable[ModuleVersion] {
-  def moduleId : ModuleId
-}
+//trait ModuleId
+//trait ModuleVersion extends Comparable[ModuleVersion] {
+//  def moduleId : ModuleId
+//}
 
-case class MavenModuleId(
+case class ModuleId(
   groupId: String,
   artifactId: String,
   classifier: Option[String]
-) extends ModuleId
-case class HashModuleId(
-  hash: Seq[Byte]
-) extends ModuleId
+)
 
-case class HashModuleVersion(
-  moduleId: HashModuleId
-) extends ModuleVersion {
-  override def compareTo(o: ModuleVersion): Int = {
-    require(o.asInstanceOf[HashModuleVersion].moduleId == moduleId)
-    0
-  }
-}
-case class MavenModuleVersion(
-  mavenModuleId: MavenModuleId,
+case class ModuleVersion(
+  mavenModuleId: ModuleId,
   version: Version
-) extends ModuleVersion {
-  override def compareTo(o: ModuleVersion): Int = {
-    val mmv = o.asInstanceOf[MavenModuleVersion]
+) extends Comparable[ModuleVersion] {
+  def compareTo(o: ModuleVersion): Int = {
+    val mmv = o.asInstanceOf[ModuleVersion]
     require(moduleId == mmv.moduleId)
     version.compareTo(mmv.version)
   }
-  override def moduleId: MavenModuleId = mavenModuleId
+  def moduleId: ModuleId = mavenModuleId
 }
 
 case class Module(
@@ -92,9 +81,9 @@ case class Module(
 //}
 
 object Module {
-  implicit def maven2module(key: MavenJarKeyImpl) : Module = {
-    CaseClassLoaderKey(key)
-  }
+//  implicit def maven2module(key: MavenJarKeyImpl) : Module = {
+//    MavenCentralModule(key)
+//  }
 //  implicit def classLoaderKey2Module(clk: ClassLoaderKey) : Module = {
 //    new ExternalModule(
 //      clk.jar.groupId,
@@ -118,40 +107,47 @@ object Module {
 
   val versionScheme = new GenericVersionScheme
 
-  def jarKey2ModuleIdVersion(jarKey: CaseJarKey) : ModuleVersion = {
-    jarKey match {
-      case m : MavenJarKeyImpl =>
-        MavenModuleVersion(
-          MavenModuleId(
-            m.groupId,
-            m.artifactId,
-            m.classifierOpt
-          ),
-          versionScheme.parseVersion(m.version)
-        )
-      case h : HashJarKeyImpl =>
-        HashModuleVersion(
-          HashModuleId(
-            h.hashSeq
-          )
-        )
+//  def jarKey2ModuleIdVersion(jarKey: CaseJarKey) : ModuleVersion = {
+//    jarKey match {
+//      case m : MavenJarKeyImpl =>
+//        MavenModuleVersion(
+//          MavenModuleId(
+//            m.groupId,
+//            m.artifactId,
+//            m.classifierOpt
+//          ),
+//          versionScheme.parseVersion(m.version)
+//        )
+//      case h : HashJarKeyImpl =>
+//        HashModuleVersion(
+//          HashModuleId(
+//            h.hashSeq
+//          )
+//        )
+//
+//    }
+//
+//
+//  }
 
-    }
-
-
-  }
-
-  implicit def classLoaderKey2Module(clk: CaseClassLoaderKey) : Module = {
+  implicit def central2Module(clk: MavenCentralModule) : Module = {
     new Module(
-      jarKey2ModuleIdVersion(clk.jar),
-      clk.dependenciesSeq.map(classLoaderKey2Module)
+      ModuleVersion(
+        ModuleId(
+          groupId = clk.groupId,
+          artifactId = clk.artifactId,
+          classifier = clk.classifier
+        ),
+        versionScheme.parseVersion(clk.version)
+      ),
+      clk.dependencies.map(central2Module)
     )
   }
 
   implicit def namedModuleToModule(namedModule: NamedModule) : Module = {
     new Module(
-      MavenModuleVersion(
-        MavenModuleId(
+      ModuleVersion(
+        ModuleId(
           namedModule.container.root.groupId,
           namedModule.path.mkString("-"),
           None
@@ -200,15 +196,13 @@ object Module {
         )
       }
     }
-    implicit def key2deployable(key: CaseClassLoaderKey) : DeployableModule = key.jar match {
-      case m : MavenJarKeyImpl =>
-        DeployableModuleImpl(
-          m.groupId,
-          m.artifactId,
-          m.version
-        )
-      case _ => ???
-    }
+
+    implicit def key2deployable(m: MavenCentralModule) : DeployableModule =
+      DeployableModuleImpl(
+        m.groupId,
+        m.artifactId,
+        m.version
+      )
   }
 
   def asPomCoordinates(
@@ -460,7 +454,7 @@ object Module {
                 module
                   .deps
                   .map(m => (m.version, m.provided))
-                  .collect({ case (dep : MavenModuleVersion, provided) =>
+                  .collect({ case (dep : ModuleVersion, provided) =>
                     <dependency>
                       <groupId>{dep.moduleId.groupId}</groupId>
                       <artifactId>{dep.moduleId.artifactId}</artifactId>
