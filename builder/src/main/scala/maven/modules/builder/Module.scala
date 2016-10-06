@@ -8,7 +8,7 @@ import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
 
-import scala.xml.PrettyPrinter
+import scala.xml.{NodeSeq, PrettyPrinter}
 import scala.collection.immutable._
 
 /**
@@ -73,7 +73,30 @@ case class Module(
   val version: ModuleVersion,
   val deps: Seq[Module],
   val provided : Boolean = false
-)
+) {
+  def depsTransitive : Seq[Module] = {
+    deps
+      .flatMap(m => m +: m.depsTransitive)
+  }
+
+  def filter(fn: Module => Boolean) : Module = {
+    copy(
+      deps = deps.filter(fn).map(_.filter(fn))
+    )
+  }
+
+  def map[T](fn: Module => Module) : Module = {
+    copy(
+      deps = deps.map(fn)
+    )
+  }
+
+  def flatten : Module = {
+    copy(
+      deps = depsTransitive.distinct.map(_.flatten)
+    )
+  }
+}
 
 
 //trait ModuleDir {
@@ -347,18 +370,17 @@ object Module {
           )
         dir.mkdirs()
 
+        def coords(dep: ModuleVersion) = (
+            <groupId>{dep.moduleId.groupId}</groupId>
+            <artifactId>{dep.moduleId.artifactId}</artifactId>
+            <version>{dep.version.toString}</version> &+
+            dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
+        )
+
         val xml =
           <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <modelVersion>4.0.0</modelVersion>
             <groupId>{module.container.root.groupId}</groupId>
-            {
-//            <parent>
-//              <groupId>{module.container.root.groupId}</groupId>
-//              <artifactId>{module.container.artifactId}</artifactId>
-//              <version>1.0.0</version>
-//            </parent>
-            }
-
             <artifactId>{module.container.artifactId}-{module.name}</artifactId>
             <version>{module.version}</version>
             <packaging>jar</packaging>
@@ -449,6 +471,24 @@ object Module {
                 </plugin>
               </plugins>
             </build>
+            <dependencyManagement>
+              <dependencies>
+                {
+//                module
+//                  .deps
+//                  .flatMap(_.deps)
+//                  .map(_.version)
+//                  .groupBy(_.mavenModuleId)
+//                  .map(_._2.maxBy(_.version))
+//                  .map({ m =>
+//                    <dependency>
+//                      {coords(m)}
+//                      <scope>runtime</scope>
+//                    </dependency>
+//                  })
+                }
+              </dependencies>
+            </dependencyManagement>
             <dependencies>
               {
                 module
@@ -456,11 +496,8 @@ object Module {
                   .map(m => (m.version, m.provided))
                   .collect({ case (dep : ModuleVersion, provided) =>
                     <dependency>
-                      <groupId>{dep.moduleId.groupId}</groupId>
-                      <artifactId>{dep.moduleId.artifactId}</artifactId>
-                      <version>{dep.version.toString}</version>
-                      {dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq}
-                      {if (provided) <scope>provided</scope> else Seq()}
+                      {coords(dep)}
+                      {if (provided) <scope>provided</scope> else <scope>compile</scope>}
                     </dependency>
                   })
               }
@@ -506,6 +543,28 @@ class NamedModule(
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
   def java7 = ConfiguredModule(this, Java7)
+
+//  def filter(fn: Module => Boolean) : NamedModule = {
+//    new NamedModule(
+//      container,
+//      name,
+//      version,
+//      deps
+//        .filter(fn)
+//        .map(_.filter(fn)):_*
+//    )
+//  }
+//
+//  def map(fn: Module => Module) : NamedModule = {
+//    new NamedModule(
+//      container,
+//      name,
+//      version,
+//      deps
+//        .map(fn):_*
+//    )
+//
+//  }
 }
 
 class JavaModule(
