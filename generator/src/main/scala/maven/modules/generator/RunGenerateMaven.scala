@@ -82,6 +82,8 @@ object RunGenerateMaven {
 //    "osgi6:osgi6-api:jar:1.0.10",
     "org.scala-lang:scala-compiler:jar:2.11.8",
     "org.apache.maven.shared:maven-invoker:2.2",
+    "emsa.ssn:ssn-vdm-support:jar:1.0.5.2",
+    "emsa.ssn:ssn-spm-domain:jar:1.0.5.2",
     "emsa.ssn:ssn-vdm-support:jar:1.1.0.1",
     "emsa.ssn:ssn-spm-domain:jar:1.1.0.1",
     "emsa.ssn:ssn-ais:jar:1.1.0.1",
