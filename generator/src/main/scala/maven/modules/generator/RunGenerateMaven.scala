@@ -96,7 +96,8 @@ object RunGenerateMaven {
     "org.springframework.integration:spring-integration-core:jar:4.3.4.RELEASE",
     "com.fasterxml.jackson.core:jackson-databind:jar:2.7.4",
     "javax.json:javax.json-api:jar:1.0",
-    "org.glassfish:javax.json:jar:1.0.4"
+    "org.glassfish:javax.json:jar:1.0.4",
+    "org.apache.tomcat:tomcat-catalina:jar:8.5.5"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")
