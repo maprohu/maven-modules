@@ -15,6 +15,20 @@ import scala.collection.immutable._
   * Created by pappmar on 29/08/2016.
   */
 
+object Implicits extends ModulesLike {
+
+}
+trait ModulesLike {
+  implicit class MavenOps(mvn: MavenCentralModule) {
+    def provided : Module = {
+      val m = mvn:Module
+      m.copy(provided = true)
+    }
+  }
+
+}
+
+
 //trait Module {
 //  def artifactId(contextGroupId: String, place: Option[Pom]) : String
 //  def groupId(contextGroupId: String) : String
@@ -96,6 +110,8 @@ case class Module(
       deps = depsTransitive.distinct.map(_.flatten)
     )
   }
+
+  def asProvided : Module = copy(provided = true)
 }
 
 
@@ -497,7 +513,9 @@ object Module {
                   .collect({ case (dep : ModuleVersion, provided) =>
                     <dependency>
                       {coords(dep)}
-                      {if (provided) <scope>provided</scope> else <scope>compile</scope>}
+                      {
+//                      if (provided) <scope>provided</scope> else <scope>compile</scope>
+                      }
                     </dependency>
                   })
               }
