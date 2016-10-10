@@ -86,6 +86,7 @@ object RunGenerateMaven {
     "emsa.ssn:ssn-spm-domain:jar:1.0.5.2",
     "emsa.ssn:ssn-vdm-support:jar:1.1.0.1",
     "emsa.ssn:ssn-spm-domain:jar:1.1.0.1",
+    "emsa.ssn:ssn-ais:jar:1.0.5.2",
     "emsa.ssn:ssn-ais:jar:1.1.0.1",
     "it.acsys.imdate:imdate-ship-types:jar:1.0.2",
     "com.google.code.gson:gson:jar:2.7",
@@ -99,7 +100,8 @@ object RunGenerateMaven {
     "org.glassfish:javax.json:jar:1.0.4",
     "org.apache.tomcat:tomcat-catalina:jar:8.5.5",
     "org.springframework:spring-test:jar:3.2.17.RELEASE",
-    "org.apache.activemq:activemq-broker:jar:5.14.1"
+    "org.apache.activemq:activemq-broker:jar:5.14.1",
+    "org.springframework:spring-oxm:jar:4.3.3.RELEASE"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")
