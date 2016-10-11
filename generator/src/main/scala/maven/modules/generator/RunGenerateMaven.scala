@@ -41,6 +41,7 @@ object RunGenerateMaven {
     "org.scala-lang.modules:scala-pickling_2.11:jar:0.10.1",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.4.9",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.4",
+    "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.5",
     "org.webjars.bower:vis:jar:4.16.1",
     "org.scala-js:scalajs-library_2.11:jar:0.6.12",
     "org.scala-js:scalajs-dom_sjs0.6_2.11:jar:0.9.1",
