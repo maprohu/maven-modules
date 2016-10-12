@@ -12,6 +12,7 @@ case class GAV(
   groupId: String,
   artifactId: String,
   version: String,
+  packaging: Option[String],
   classifier: Option[String]
 ) {
 }
@@ -24,6 +25,7 @@ object GAV {
       mc.getGroupId,
       mc.getArtifactId,
       mc.getVersion,
+      Some(mc.getPackaging.getExtension),
       Option(mc.getClassifier).filterNot(_.isEmpty)
     )
   }
@@ -34,6 +36,7 @@ class MavenCentralModule(
   val groupId: String,
   val artifactId: String,
   val version: String,
+  val packaging: Option[String] = None,
   val classifier: Option[String] = None,
   val dependencies: Seq[MavenCentralModule] = Seq()
 ) {
@@ -45,6 +48,7 @@ class MavenCentralModule(
     artifactId = gav.artifactId,
     version = gav.version,
     classifier = gav.classifier,
+    packaging = gav.packaging,
     dependencies = dependencies
   )
 
