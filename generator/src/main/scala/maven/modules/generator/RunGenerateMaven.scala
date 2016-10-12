@@ -104,7 +104,8 @@ object RunGenerateMaven {
     "org.springframework:spring-test:jar:3.2.17.RELEASE",
     "org.apache.activemq:activemq-broker:jar:5.14.1",
     "org.springframework:spring-oxm:jar:4.3.3.RELEASE",
-    "com.google.android:android:jar:4.1.1.4"
+    "com.google.android:android:jar:4.1.1.4",
+    "com.lihaoyi:scalatex-site_2.11:jar:0.3.6"
   )
 
   val root = new File("../maven-modules/poms/src/main/scala/mvn")
