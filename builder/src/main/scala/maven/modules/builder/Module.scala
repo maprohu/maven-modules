@@ -411,6 +411,18 @@ object Module {
                 </execution>
               </executions>
             </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>3.0.2</version>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                  </manifest>
+                </archive>
+              </configuration>
+            </plugin>
           </plugins>
         </build>
         <dependencyManagement>
@@ -496,8 +508,8 @@ class NamedModule(
     name,
     deps:_*
   ) { self =>
-    lazy val releaseId = self.getClass.getName.reverse.drop(1).takeWhile(_ != '$').reverse
-    override lazy val version = s"1-${releaseId}"
+    lazy val releaseId = self.getClass.getName.reverse.drop(1).takeWhile(_ != '$').reverse.filter(_.isDigit)
+    override lazy val version = s"1.${releaseId}"
   }
 }
 
