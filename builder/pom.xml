@@ -65,6 +65,11 @@
             <artifactId>scala-xml_2.11</artifactId>
             <version>1.0.6</version>
         </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>ammonite-ops_2.11</artifactId>
+            <version>0.7.7</version>
+        </dependency>
     </dependencies>
 
 

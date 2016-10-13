@@ -15,9 +15,7 @@ import scala.collection.immutable._
   * Created by pappmar on 29/08/2016.
   */
 
-object Implicits extends ModulesLike {
-
-}
+object Implicits extends ModulesLike
 trait ModulesLike {
   implicit class MavenOps(mvn: MavenCentralModule) {
     def provided : Module = {
@@ -25,45 +23,9 @@ trait ModulesLike {
       m.copy(provided = true)
     }
   }
-
 }
 
 
-//trait Module {
-//  def artifactId(contextGroupId: String, place: Option[Pom]) : String
-//  def groupId(contextGroupId: String) : String
-//  def version : String
-//  def classifier : Option[String]
-//  def deps: Seq[Module]
-//}
-//
-//
-//
-//class ExternalModule(
-//  val groupId: String,
-//  val artifactId: String,
-//  val version: String,
-//  val classifier: Option[String],
-//  val deps: Module*
-//) extends Module {
-//  override def groupId(contextGroupId: String): String = groupId
-//  override def artifactId(contextGroupId: String, place: Option[Pom]): String = artifactId
-//}
-//
-//case class InternalModule(
-//  module: NamedModule
-//) extends Module {
-//  override def groupId(contextGroupId: String): String = contextGroupId
-//  override def artifactId(contextGroupId: String, place: Option[Pom]): String = s"${place.get.artifactId(contextGroupId)}-${module.name}"
-//  override def version: String = module.version
-//  override def classifier: Option[String] = None
-//  override def deps: Seq[Module] = module.deps
-//}
-
-//trait ModuleId
-//trait ModuleVersion extends Comparable[ModuleVersion] {
-//  def moduleId : ModuleId
-//}
 
 case class ModuleId(
   groupId: String,
@@ -112,32 +74,15 @@ case class Module(
   }
 
   def asProvided : Module = copy(provided = true)
+
+  def isSnapshot = version.version.toString.endsWith("-SNAPSHOT")
+
+  def asString = s"${version.mavenModuleId.groupId}:${version.mavenModuleId.artifactId}:${version.version.toString}"
 }
 
 
-//trait ModuleDir {
-//  def parent: Option[(ModuleDir, String)]
-//}
 
 object Module {
-//  implicit def maven2module(key: MavenJarKeyImpl) : Module = {
-//    MavenCentralModule(key)
-//  }
-//  implicit def classLoaderKey2Module(clk: ClassLoaderKey) : Module = {
-//    new ExternalModule(
-//      clk.jar.groupId,
-//      clk.jar.artifactId,
-//      clk.jar.version,
-//      clk.jar.classifier,
-//      clk.parents.map(classLoaderKey2Module):_*
-//    )
-//  }
-//
-//  implicit def namedModuleToModule(namedModule: NamedModule) : InternalModule = {
-//    new InternalModule(
-//      namedModule
-//    )
-//  }
   def provided(module: Module) : Module = new Module(
     module.version,
     module.deps,
@@ -145,29 +90,6 @@ object Module {
   )
 
   val versionScheme = new GenericVersionScheme
-
-//  def jarKey2ModuleIdVersion(jarKey: CaseJarKey) : ModuleVersion = {
-//    jarKey match {
-//      case m : MavenJarKeyImpl =>
-//        MavenModuleVersion(
-//          MavenModuleId(
-//            m.groupId,
-//            m.artifactId,
-//            m.classifierOpt
-//          ),
-//          versionScheme.parseVersion(m.version)
-//        )
-//      case h : HashJarKeyImpl =>
-//        HashModuleVersion(
-//          HashModuleId(
-//            h.hashSeq
-//          )
-//        )
-//
-//    }
-//
-//
-//  }
 
   implicit def central2Module(clk: MavenCentralModule) : Module = {
     new Module(
@@ -324,19 +246,6 @@ object Module {
         val xml =
           <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <modelVersion>4.0.0</modelVersion>
-            {
-//              place
-//                .parentOpt
-//                .map({ parent =>
-//                  <parent>
-//                    <groupId>{place.root.name}</groupId>
-//                    <artifactId>{parent.artifactId}</artifactId>
-//                    <version>1.0.0</version>
-//                  </parent>
-//                })
-//                .toSeq
-            }
-
             <groupId>{place.root.name}</groupId>
             <artifactId>{place.artifactId}</artifactId>
             <version>1.0.0</version>
@@ -552,7 +461,6 @@ sealed trait ContainedModule {
 class NamedModule(
   val container: ModuleContainer,
   val name: String,
-  val version: String,
   val deps: Module*
 ) extends ContainedModule with DeployableModule {
   def path : Seq[String] = container.path :+ name
@@ -561,40 +469,29 @@ class NamedModule(
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
   def java7 = ConfiguredModule(this, Java7)
+  def version = "2-SNAPSHOT"
+  def asModule : Module = this
 
-//  def filter(fn: Module => Boolean) : NamedModule = {
-//    new NamedModule(
-//      container,
-//      name,
-//      version,
-//      deps
-//        .filter(fn)
-//        .map(_.filter(fn)):_*
-//    )
-//  }
-//
-//  def map(fn: Module => Module) : NamedModule = {
-//    new NamedModule(
-//      container,
-//      name,
-//      version,
-//      deps
-//        .map(fn):_*
-//    )
-//
-//  }
+  class Release(
+    deps: Module*
+  ) extends NamedModule(
+    container,
+    name,
+    deps:_*
+  ) { self =>
+    lazy val releaseId = self.getClass.getName.reverse.drop(1).takeWhile(_ != '$').reverse
+    override lazy val version = s"1-${releaseId}"
+  }
 }
 
 class JavaModule(
   name: String,
-  version: String,
   deps: Module*
 )(implicit
   container: ModuleContainer
 ) extends NamedModule (
   container,
   name,
-  version,
   (deps ++ Seq[Module](
     Module.provided(mvn.`org.scala-lang:scala-library:jar:2.11.8`)
   )):_*
@@ -602,14 +499,12 @@ class JavaModule(
 
 class ScalaModule(
   name: String,
-  version: String,
   deps: Module*
 )(implicit
   container: ModuleContainer
 ) extends NamedModule (
   container,
   name,
-  version,
   (deps ++ Seq[Module](
     mvn.`org.scala-lang:scala-library:jar:2.11.8`
   )):_*
@@ -628,52 +523,6 @@ object PlacedRoot {
       new PlacedRoot(root, dir)
   }
 }
-//object NamedModule {
-//  def of(
-//    name: String,
-//    version: String,
-//    deps: Module*
-//  ): NamedModule = new NamedModule(
-//    new Module(version, deps:_*),
-//    name,
-//    version
-//  )
-//}
-
-//class PlacedModule(
-//  val place: Pom,
-//  val module: NamedModule
-//) extends ModuleDir {
-//  override def parent: Option[(ModuleDir, String)] = Some((place, module.name))
-//  def path : Seq[String] = place.path :+ module.name
-//}
-//
-//object PlacedModule {
-//  implicit def pairToPlacedModule(pair: (Pom, NamedModule)) : PlacedModule = pair match {
-//    case (place, module) =>
-//      new PlacedModule(place, module)
-//  }
-//}
-
-
-//case class Pom(
-//  parent: Option[(Pom, String)] = None
-//) extends ModuleDir {
-//  def toSeq : Seq[Pom] = {
-//    parent
-//      .map(_._1.toSeq)
-//      .toSeq
-//      .flatten :+ this
-//  }
-//
-//  def path : Seq[String] = toSeq.flatMap(_.parent.map(_._2))
-//
-//  def artifactId(groupId: String) : String = (groupId +: path).mkString("-")
-//}
-//
-//object Pom {
-//  def apply(parent: Pom, segment: String) : Pom = Pom(Some((parent, segment)))
-//}
 
 trait Artifact {
   def artifactId : String
