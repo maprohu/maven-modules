@@ -13,10 +13,12 @@ object ModuleRelease {
   val ReleasesDirName = "releases"
 
   def name(n: String) : Path => Boolean = _.name == n
+  def ext(n: String) : Path => Boolean = _.ext == n
   val DontCopyFiles = Seq[(Path => Boolean)](
     name(ReleasesDirName),
     name("pom.xml"),
-    name("target")
+    name("target"),
+    ext("iml")
   )
 
   def copyProject(
@@ -61,10 +63,29 @@ object ModuleRelease {
         )
       })
 
-      copyProject(
-        snapshotDir,
-        releaseDir
-      )
+      try {
+        copyProject(
+          snapshotDir,
+          releaseDir
+        )
+
+        Module.generateSingle(
+          r,
+          releaseDir.toIO
+        )
+
+        MavenTools.runMavenProject(
+          releaseDir.toIO,
+          Seq("install")
+        )
+
+
+      } catch {
+        case ex: Throwable =>
+          ex.printStackTrace()
+          rm(releaseDir)
+          throw ex
+      }
 
 
     }

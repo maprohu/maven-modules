@@ -202,6 +202,9 @@ object Module {
     }
   }
 
+
+  val pretty = new PrettyPrinter(300, 4)
+
   def generate(
     roots: Seq[PlacedRoot],
     configuredModules: Seq[ConfiguredModule]
@@ -221,7 +224,6 @@ object Module {
       containedModules
         .groupBy(_.parent)
 
-    val pretty = new PrettyPrinter(300, 4)
 
     val placeLookup : Map[RootModuleContainer, File] =
       roots
@@ -293,151 +295,166 @@ object Module {
               .foldLeft(placeLookup(module.container.root))(new File(_, _)),
             module.name
           )
-        dir.mkdirs()
 
-        def coords(dep: ModuleVersion) = (
-            <groupId>{dep.moduleId.groupId}</groupId>
-            <artifactId>{dep.moduleId.artifactId}</artifactId>
-            <version>{dep.version.toString}</version> &+
-            dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
+        generateSingle(
+          configuredModule,
+          dir
         )
 
-        val xml =
-          <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-            <modelVersion>4.0.0</modelVersion>
-            <groupId>{module.container.root.groupId}</groupId>
-            <artifactId>{module.container.artifactId}-{module.name}</artifactId>
-            <version>{module.version}</version>
-            <packaging>jar</packaging>
-            <build>
-              <finalName>product</finalName>
-              <plugins>
-                <plugin>
-                  <groupId>net.alchim31.maven</groupId>
-                  <artifactId>scala-maven-plugin</artifactId>
-                  <version>3.2.1</version>
-                  <executions>
-                    <execution>
-                      <goals>
-                        <goal>add-source</goal>
-                        <goal>compile</goal>
-                        <goal>testCompile</goal>
-                      </goals>
-                    </execution>
-                  </executions>
-                </plugin>
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-compiler-plugin</artifactId>
-                  <version>3.5.1</version>
-                  <configuration>
-                    <source>{javaVersion.value}</source>
-                    <target>{javaVersion.value}</target>
-                  </configuration>
-                </plugin>
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-source-plugin</artifactId>
-                  <version>3.0.1</version>
-                  <executions>
-                    <execution>
-                      <id>attach-sources</id>
-                      <phase>package</phase>
-                      <goals>
-                        <goal>jar</goal>
-                      </goals>
-                    </execution>
-                  </executions>
-                </plugin>
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-dependency-plugin</artifactId>
-                  <version>2.10</version>
-                </plugin>
-                <plugin>
-                  <groupId>org.codehaus.mojo</groupId>
-                  <artifactId>build-helper-maven-plugin</artifactId>
-                  <version>1.12</version>
-                  <executions>
-                    <execution>
-                      <id>add-source</id>
-                      <phase>generate-sources</phase>
-                      <goals>
-                        <goal>add-source</goal>
-                      </goals>
-                      <configuration>
-                        <sources>
-                          <source>{"${project.build.directory}/generated-sources"}</source>
-                        </sources>
-                      </configuration>
-                    </execution>
-                  </executions>
-                </plugin>
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-antrun-plugin</artifactId>
-                  <executions>
-                    <execution>
-                      <phase>generate-resources</phase>
-                      <goals>
-                        <goal>run</goal>
-                      </goals>
-                      <configuration>
-                        <tasks>
-                          <mkdir dir="${basedir}/target/classes/META-INF"/>
-                          <tstamp>
-                            <format property="last.updated" pattern="yyyyMMddHHmmssSSS"/>
-                          </tstamp>
-                          <echo file="${basedir}/target/classes/META-INF/build.timestamp" message="${last.updated}"/>
-                        </tasks>
-                      </configuration>
-                    </execution>
-                  </executions>
-                </plugin>
-              </plugins>
-            </build>
-            <dependencyManagement>
-              <dependencies>
-                {
-//                module
-//                  .deps
-//                  .flatMap(_.deps)
-//                  .map(_.version)
-//                  .groupBy(_.mavenModuleId)
-//                  .map(_._2.maxBy(_.version))
-//                  .map({ m =>
-//                    <dependency>
-//                      {coords(m)}
-//                      <scope>runtime</scope>
-//                    </dependency>
-//                  })
-                }
-              </dependencies>
-            </dependencyManagement>
-            <dependencies>
-              {
-                module
-                  .deps
-                  .map(m => (m.version, m.provided))
-                  .collect({ case (dep : ModuleVersion, provided) =>
-                    <dependency>
-                      {coords(dep)}
-                      {
-//                      if (provided) <scope>provided</scope> else <scope>compile</scope>
-                      }
-                    </dependency>
-                  })
-              }
-            </dependencies>
-          </project>
-
-        module.path.foldLeft(new File(dir, "src/main/scala"))(new File(_, _)).mkdirs()
-
-        writeFile(
-          new File(dir, "pom.xml"),
-          pretty.format(xml)
-        )
       })
+  }
+
+  def generateSingle(
+    configuredModule: ConfiguredModule,
+    dir: File
+  ) = {
+    import configuredModule._
+
+    dir.mkdirs()
+
+    def coords(dep: ModuleVersion) = (
+      <groupId>{dep.moduleId.groupId}</groupId>
+        <artifactId>{dep.moduleId.artifactId}</artifactId>
+        <version>{dep.version.toString}</version> &+
+        dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
+      )
+
+    val xml =
+      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>{module.container.root.groupId}</groupId>
+        <artifactId>{module.container.artifactId}-{module.name}</artifactId>
+        <version>{module.version}</version>
+        <packaging>jar</packaging>
+        <build>
+          <finalName>product</finalName>
+          <plugins>
+            <plugin>
+              <groupId>net.alchim31.maven</groupId>
+              <artifactId>scala-maven-plugin</artifactId>
+              <version>3.2.1</version>
+              <executions>
+                <execution>
+                  <goals>
+                    <goal>add-source</goal>
+                    <goal>compile</goal>
+                    <goal>testCompile</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.5.1</version>
+              <configuration>
+                <source>{javaVersion.value}</source>
+                <target>{javaVersion.value}</target>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>3.0.1</version>
+              <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <version>2.10</version>
+            </plugin>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>build-helper-maven-plugin</artifactId>
+              <version>1.12</version>
+              <executions>
+                <execution>
+                  <id>add-source</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                    <goal>add-source</goal>
+                  </goals>
+                  <configuration>
+                    <sources>
+                      <source>{"${project.build.directory}/generated-sources"}</source>
+                    </sources>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-antrun-plugin</artifactId>
+              <executions>
+                <execution>
+                  <phase>generate-resources</phase>
+                  <goals>
+                    <goal>run</goal>
+                  </goals>
+                  <configuration>
+                    <tasks>
+                      <mkdir dir="${basedir}/target/classes/META-INF"/>
+                      <tstamp>
+                        <format property="last.updated" pattern="yyyyMMddHHmmssSSS"/>
+                      </tstamp>
+                      <echo file="${basedir}/target/classes/META-INF/build.timestamp" message="${last.updated}"/>
+                    </tasks>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+          </plugins>
+        </build>
+        <dependencyManagement>
+          <dependencies>
+            {
+            //                module
+            //                  .deps
+            //                  .flatMap(_.deps)
+            //                  .map(_.version)
+            //                  .groupBy(_.mavenModuleId)
+            //                  .map(_._2.maxBy(_.version))
+            //                  .map({ m =>
+            //                    <dependency>
+            //                      {coords(m)}
+            //                      <scope>runtime</scope>
+            //                    </dependency>
+            //                  })
+            }
+          </dependencies>
+        </dependencyManagement>
+        <dependencies>
+          {
+          module
+            .deps
+            .map(m => (m.version, m.provided))
+            .collect({ case (dep : ModuleVersion, provided) =>
+              <dependency>
+                {coords(dep)}
+                {
+                //                      if (provided) <scope>provided</scope> else <scope>compile</scope>
+                }
+              </dependency>
+            })
+          }
+        </dependencies>
+      </project>
+
+    module.path.foldLeft(new File(dir, "src/main/scala"))(new File(_, _)).mkdirs()
+
+    writeFile(
+      new File(dir, "pom.xml"),
+      pretty.format(xml)
+    )
+
   }
 
   def writeFile(
@@ -497,6 +514,18 @@ class JavaModule(
   )):_*
 )
 
+object ScalaModule {
+
+  def deps(
+    d: collection.Seq[Module]
+  ) = {
+    (d ++ Seq[Module](
+      mvn.`org.scala-lang:scala-library:jar:2.11.8`
+    ))
+  }
+
+}
+
 class ScalaModule(
   name: String,
   deps: Module*
@@ -505,10 +534,16 @@ class ScalaModule(
 ) extends NamedModule (
   container,
   name,
-  (deps ++ Seq[Module](
-    mvn.`org.scala-lang:scala-library:jar:2.11.8`
-  )):_*
-)
+  ScalaModule.deps(deps):_*
+) {
+
+  class Release(
+    deps: Module*
+  ) extends super.Release(
+    ScalaModule.deps(deps):_*
+  )
+
+}
 
 class PlacedRoot(
   val rootContainer: RootModuleContainer,
