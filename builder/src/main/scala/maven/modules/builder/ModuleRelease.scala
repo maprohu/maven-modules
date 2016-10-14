@@ -30,10 +30,10 @@ object ModuleRelease {
     ls! from |? (f => !DontCopyFiles.exists(_(f))) | (f => cp(f, to / f.name))
   }
 
-  def release(
+  def releaseDirFor(
     roots: Seq[PlacedRoot],
     r: maven.modules.builder.NamedModule#Release
-  ) = {
+  ) : (Path, Path) = {
     val placeLookup : Map[RootModuleContainer, File] =
       roots
         .map(p => p.rootContainer -> p.rootDir)
@@ -43,15 +43,43 @@ object ModuleRelease {
 
     val snapshotDir = Path(
       r
-       .path
+        .path
         .tail
         .mkString("/"),
       rootDir
     )
 
+
     val releasesDir = snapshotDir / ReleasesDirName
 
     val releaseDir = releasesDir / r.releaseId
+
+    (snapshotDir, releaseDir)
+  }
+
+  def release(
+    roots: Seq[PlacedRoot],
+    r: maven.modules.builder.NamedModule#Release
+  ) = {
+    val (snapshotDir, releaseDir) = releaseDirFor(roots, r)
+//    val placeLookup : Map[RootModuleContainer, File] =
+//      roots
+//        .map(p => p.rootContainer -> p.rootDir)
+//        .toMap
+//
+//    val rootDir = Path.apply(placeLookup(r.container.root).getAbsoluteFile.toPath)
+//
+//    val snapshotDir = Path(
+//      r
+//       .path
+//        .tail
+//        .mkString("/"),
+//      rootDir
+//    )
+//
+//    val releasesDir = snapshotDir / ReleasesDirName
+//
+//    val releaseDir = releasesDir / r.releaseId
 
     if (exists(releaseDir)) {
       println(s"Release already exists: ${r.asModule.asString}")
@@ -91,6 +119,19 @@ object ModuleRelease {
     }
 
 
+
+  }
+
+  def installRelease(
+    roots: Seq[PlacedRoot],
+    r: maven.modules.builder.NamedModule#Release
+  ) = {
+    val (_, releaseDir) = releaseDirFor(roots, r)
+
+    MavenTools.runMavenProject(
+      releaseDir.toIO,
+      Seq("install")
+    )
 
   }
 
