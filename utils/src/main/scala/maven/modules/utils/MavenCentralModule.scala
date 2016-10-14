@@ -1,5 +1,6 @@
 package maven.modules.utils
 
+import org.jboss.shrinkwrap.resolver.api.maven.PackagingType
 import org.jboss.shrinkwrap.resolver.api.maven.coordinate.MavenCoordinates
 
 import scala.collection.immutable._
@@ -59,6 +60,18 @@ class MavenCentralModule(
     GAV(canonical),
     dependencies.to[Seq]
   )
+
+  def canonical = {
+    MavenCoordinates
+      .createCoordinate(
+        groupId,
+        artifactId,
+        version,
+        packaging.map(p => PackagingType.of(p)).orNull,
+        classifier.orNull
+      )
+      .toCanonicalForm
+  }
 
 }
 
