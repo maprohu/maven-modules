@@ -206,8 +206,8 @@ object Module {
   val pretty = new PrettyPrinter(300, 4)
 
   def generate(
-    roots: Seq[PlacedRoot],
-    configuredModules: Seq[ConfiguredModule]
+    roots: collection.Seq[PlacedRoot],
+    configuredModules: collection.Seq[ConfiguredModule]
   ) : Unit = {
     val modules = configuredModules.map(_.module)
 
