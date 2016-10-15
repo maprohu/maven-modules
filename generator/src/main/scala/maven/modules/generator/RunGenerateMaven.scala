@@ -40,6 +40,7 @@ object RunGenerateMaven {
     "com.jsuereth:scala-arm_2.11:jar:1.4",
     "org.scala-lang.modules:scala-pickling_2.11:jar:0.10.1",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.4.9",
+    "com.typesafe.akka:akka-http-experimental_2.11:jar:2.4.11",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.4",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.5",
     "org.webjars.bower:vis:jar:4.16.1",
