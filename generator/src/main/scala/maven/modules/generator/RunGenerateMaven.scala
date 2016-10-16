@@ -20,6 +20,7 @@ object RunGenerateMaven {
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-spi-maven:jar:2.2.2",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-impl-maven:jar:2.2.2",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-impl-maven-archive:jar:2.2.2",
+    "me.chrons:boopickle_2.11:jar:1.2.4",
     "com.jcraft:jsch:jar:0.1.54",
     "com.typesafe.akka:akka-stream_2.11:2.4.9",
     "com.typesafe.akka:akka-stream_2.11:2.4.11",
