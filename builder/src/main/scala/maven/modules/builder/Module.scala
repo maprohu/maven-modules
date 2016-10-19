@@ -501,6 +501,19 @@ class NamedModule(
   def version = "2-SNAPSHOT"
   def asModule : Module = this
 
+  def pomCoordinates = {
+    <groupId>{groupId}</groupId>
+    <artifactId>{artifactId}</artifactId>
+    <version>{version}</version>
+  }
+
+  def pomDependency = {
+    <dependency>
+      {pomCoordinates}
+    </dependency>
+  }
+
+
   class Release(
     deps: Module*
   ) extends NamedModule(
