@@ -62,6 +62,7 @@ object RunGenerateMaven {
     "io.github.lukehutch:fast-classpath-scanner:jar:2.0.3",
     "org.osgi:org.osgi.core:jar:5.0.0",
     "javax.jms:jms-api:jar:1.1-rev-1",
+    "com.oracle:wljmxclient:jar:10.3.6.0",
     "com.oracle:wlfullclient:jar:10.3.6.0",
     "com.oracle:wlfullclient:jar:12.1.3.0",
     "com.oracle:wlthint3client:jar:10.3.6.0",
