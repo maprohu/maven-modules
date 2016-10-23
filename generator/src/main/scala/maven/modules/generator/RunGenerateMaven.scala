@@ -113,7 +113,12 @@ object RunGenerateMaven {
     "com.lihaoyi:scalatex-site_2.11:jar:0.3.6",
     "org.zeroturnaround:zt-zip:jar:1.9",
     "com.github.scopt:scopt_2.11:jar:3.5.0",
-    "org.hid4java:hid4java:jar:0.4.0"
+    "org.hid4java:hid4java:jar:0.4.0",
+    "libmatthew-debug-java:hexdump:jar:0.2",
+    "libmatthew-debug-java:debug-enable:jar:1.1",
+    "libmatthew-debug-java:debug-disable:jar:1.1",
+    "libunix-java:unix:jar:0.5",
+    "libdbus-java:dbus:jar:2.8"
 //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
   )
