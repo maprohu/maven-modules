@@ -2,7 +2,7 @@ package maven.modules.builder
 
 import java.io.File
 
-import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7}
+import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7, Java8}
 import maven.modules.utils.{MavenCentralModule, Repo}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
@@ -515,7 +515,7 @@ class NamedModule(
   def groupId = container.root.groupId
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
-//  def java7 = ConfiguredModule.named2configured(this).java7
+  def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
   def version = "2-SNAPSHOT"
   def asModule : Module = this
 

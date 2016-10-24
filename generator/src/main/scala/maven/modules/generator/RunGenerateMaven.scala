@@ -126,7 +126,8 @@ object RunGenerateMaven {
     "commons-dbcp:commons-dbcp:jar:1.4",
     "net.sf.bluecove:bluecove:jar:2.1.0",
     "net.sf.bluecove:bluecove-gpl:jar:2.1.0",
-    "com.lihaoyi:autowire_2.11:jar:0.2.5"
+    "com.lihaoyi:autowire_2.11:jar:0.2.5",
+    "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3"
 
 
 
