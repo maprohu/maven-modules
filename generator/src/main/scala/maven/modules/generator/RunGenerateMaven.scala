@@ -29,6 +29,7 @@ object RunGenerateMaven {
     "javax.servlet:javax.servlet-api:jar:3.1.0",
     "org.scala-lang:scala-library:jar:2.11.8",
     "com.lihaoyi:scalarx_2.11:jar:0.3.1",
+    "commons-net:commons-net:jar:3.5",
     "commons-io:commons-io:jar:2.5",
     "commons-codec:commons-codec:jar:1.10",
 //    "jartree:jartree-api:jar:1.0.0-SNAPSHOT",
@@ -118,7 +119,13 @@ object RunGenerateMaven {
     "libmatthew-debug-java:debug-enable:jar:1.1",
     "libmatthew-debug-java:debug-disable:jar:1.1",
     "libunix-java:unix:jar:0.5",
-    "libdbus-java:dbus:jar:2.8"
+    "libdbus-java:dbus:jar:2.8",
+    "org.orbisgis:h2spatial:jar:1.2.4",
+    "org.orbisgis:h2spatial-ext:jar:1.2.4",
+    "commons-dbcp:commons-dbcp:jar:1.4"
+
+
+
 //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
   )
