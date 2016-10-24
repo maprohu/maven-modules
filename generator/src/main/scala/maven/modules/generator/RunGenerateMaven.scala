@@ -47,6 +47,7 @@ object RunGenerateMaven {
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.4.11",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.4",
     "com.typesafe.akka:akka-http-experimental_2.11:jar:2.0.5",
+    "com.typesafe.akka:akka-http-xml-experimental_2.11:jar:2.0.5",
     "org.webjars.bower:vis:jar:4.16.1",
     "org.scala-js:scalajs-library_2.11:jar:0.6.12",
     "org.scala-js:scalajs-dom_sjs0.6_2.11:jar:0.9.1",
@@ -124,7 +125,8 @@ object RunGenerateMaven {
     "org.orbisgis:h2spatial-ext:jar:1.2.4",
     "commons-dbcp:commons-dbcp:jar:1.4",
     "net.sf.bluecove:bluecove:jar:2.1.0",
-    "net.sf.bluecove:bluecove-gpl:jar:2.1.0"
+    "net.sf.bluecove:bluecove-gpl:jar:2.1.0",
+    "com.lihaoyi:autowire_2.11:jar:0.2.5"
 
 
 
@@ -193,8 +195,8 @@ object RunGenerateMaven {
 
   def main(args: Array[String]): Unit = {
     root.mkdirs()
-    IO.delete(root)
-    root.mkdirs()
+//    IO.delete(root)
+//    root.mkdirs()
 
 
 

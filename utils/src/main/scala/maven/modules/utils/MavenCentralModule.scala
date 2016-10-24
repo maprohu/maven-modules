@@ -33,16 +33,23 @@ object GAV {
 
 }
 
+case class Repo(
+  id: String,
+  url: String
+)
+
 class MavenCentralModule(
   val groupId: String,
   val artifactId: String,
   val version: String,
   val packaging: Option[String] = None,
   val classifier: Option[String] = None,
-  val dependencies: Seq[MavenCentralModule] = Seq()
+  val dependencies: Seq[MavenCentralModule] = Seq(),
+  val repos: Seq[Repo] = Seq()
 ) {
   def this(
     gav: GAV,
+    repos: Seq[Repo],
     dependencies: Seq[MavenCentralModule]
   ) = this(
     groupId = gav.groupId,
@@ -50,7 +57,18 @@ class MavenCentralModule(
     version = gav.version,
     classifier = gav.classifier,
     packaging = gav.packaging,
-    dependencies = dependencies
+    dependencies = dependencies,
+    repos = repos
+  )
+
+  def this(
+    canonical: String,
+    repos: Seq[Repo],
+    dependencies: MavenCentralModule*
+  ) = this(
+    GAV(canonical),
+    repos = repos,
+    dependencies = dependencies.to[Seq]
   )
 
   def this(
@@ -58,7 +76,8 @@ class MavenCentralModule(
     dependencies: MavenCentralModule*
   ) = this(
     GAV(canonical),
-    dependencies.to[Seq]
+    repos = Seq(),
+    dependencies = dependencies.to[Seq]
   )
 
   def canonical = {
@@ -75,4 +94,18 @@ class MavenCentralModule(
 
 }
 
+object GeotoolsMoule {
+  def Repos = Seq(
+    Repo("geotools", "http://download.osgeo.org/webdav/geotools/"),
+    Repo("boundles", "http://repo.boundlessgeo.com/main")
+  )
+}
+class GeotoolsMoule(
+  canonical: String,
+  dependencies: MavenCentralModule*
+) extends MavenCentralModule(
+  canonical,
+  GeotoolsMoule.Repos,
+  dependencies:_*
+)
 

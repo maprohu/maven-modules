@@ -3,7 +3,7 @@ package maven.modules.builder
 import java.io.File
 
 import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7}
-import maven.modules.utils.MavenCentralModule
+import maven.modules.utils.{MavenCentralModule, Repo}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -48,6 +48,7 @@ case class ModuleVersion(
 case class Module(
   val version: ModuleVersion,
   val deps: Seq[Module],
+  val repos: Seq[Repo],
   val provided : Boolean = false
 ) {
   def depsTransitive : Seq[Module] = {
@@ -83,16 +84,12 @@ case class Module(
 
 
 object Module {
-  def provided(module: Module) : Module = new Module(
-    module.version,
-    module.deps,
-    true
-  )
+  def provided(module: Module) : Module = module.copy(provided = true)
 
   val versionScheme = new GenericVersionScheme
 
   implicit def central2Module(clk: MavenCentralModule) : Module = {
-    new Module(
+    Module(
       ModuleVersion(
         ModuleId(
           groupId = clk.groupId,
@@ -101,12 +98,13 @@ object Module {
         ),
         versionScheme.parseVersion(clk.version)
       ),
-      clk.dependencies.map(central2Module)
+      clk.dependencies.map(central2Module),
+      repos = clk.dependencies.flatMap(_.repos).distinct
     )
   }
 
   implicit def namedModuleToModule(namedModule: NamedModule) : Module = {
-    new Module(
+    Module(
       ModuleVersion(
         ModuleId(
           namedModule.container.root.groupId,
@@ -115,7 +113,8 @@ object Module {
         ),
         versionScheme.parseVersion(namedModule.version)
       ),
-      namedModule.deps.to[Seq]
+      namedModule.deps.to[Seq],
+      repos = namedModule.deps.to[Seq].flatMap(_.repos).distinct
     )
   }
 
@@ -191,14 +190,23 @@ object Module {
 
   case class ConfiguredModule(
     module: NamedModule,
+    repos: Seq[Repo],
     javaVersion : JavaVersion
   )
 
   object ConfiguredModule {
-    implicit def named2configured(module: NamedModule) : ConfiguredModule = ConfiguredModule(module, Java6)
+    implicit def named2configured(module: NamedModule) : ConfiguredModule = {
+      ConfiguredModule(
+        module,
+        module.deps.to[Seq].flatMap(_.repos).distinct,
+        Java6
+      )
+    }
 
     implicit class NamedOps(namedModule: NamedModule) {
-      def java7 : ConfiguredModule = ConfiguredModule(namedModule, Java7)
+      def java7 : ConfiguredModule = {
+        named2configured(namedModule).copy(javaVersion = Java7)
+      }
     }
   }
 
@@ -458,6 +466,16 @@ object Module {
             })
           }
         </dependencies>
+        <repositories>
+          {
+            configuredModule.repos.map { r =>
+              <repository>
+                <id>{r.id}</id>
+                <url>{r.url}</url>
+              </repository>
+            }
+          }
+        </repositories>
       </project>
 
     module.path.foldLeft(new File(dir, "src/main/scala"))(new File(_, _)).mkdirs()
@@ -497,7 +515,7 @@ class NamedModule(
   def groupId = container.root.groupId
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
-  def java7 = ConfiguredModule(this, Java7)
+//  def java7 = ConfiguredModule.named2configured(this).java7
   def version = "2-SNAPSHOT"
   def asModule : Module = this
 
