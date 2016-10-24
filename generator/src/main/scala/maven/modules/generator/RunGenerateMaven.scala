@@ -122,7 +122,9 @@ object RunGenerateMaven {
     "libdbus-java:dbus:jar:2.8",
     "org.orbisgis:h2spatial:jar:1.2.4",
     "org.orbisgis:h2spatial-ext:jar:1.2.4",
-    "commons-dbcp:commons-dbcp:jar:1.4"
+    "commons-dbcp:commons-dbcp:jar:1.4",
+    "net.sf.bluecove:bluecove:jar:2.1.0",
+    "net.sf.bluecove:bluecove-gpl:jar:2.1.0"
 
 
 
