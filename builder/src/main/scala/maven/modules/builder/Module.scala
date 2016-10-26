@@ -49,6 +49,7 @@ case class Module(
   val version: ModuleVersion,
   val deps: Seq[Module],
   val repos: Seq[Repo],
+  val source: Option[NamedModule],
   val provided : Boolean = false
 ) {
   def depsTransitive : Seq[Module] = {
@@ -99,7 +100,8 @@ object Module {
         versionScheme.parseVersion(clk.version)
       ),
       clk.dependencies.map(central2Module),
-      repos = clk.dependencies.flatMap(_.repos).distinct
+      repos = clk.dependencies.flatMap(_.repos).distinct,
+      source = None
     )
   }
 
@@ -114,7 +116,8 @@ object Module {
         versionScheme.parseVersion(namedModule.version)
       ),
       namedModule.deps.to[Seq],
-      repos = namedModule.deps.to[Seq].flatMap(_.repos).distinct
+      repos = namedModule.deps.to[Seq].flatMap(_.repos).distinct,
+      source = Some(namedModule)
     )
   }
 
