@@ -5,7 +5,7 @@ import java.io.File
 import ammonite.ops._
 import sbt.io.IO
 
-import scala.xml.{PrettyPrinter, XML}
+import scala.xml.{Node, NodeSeq, PrettyPrinter, XML}
 
 /**
   * Created by pappmar on 26/10/2016.
@@ -39,7 +39,8 @@ object Delivery {
     what: Seq[NamedModule],
     roots: Seq[(RootModuleContainer, File)],
     where: File,
-    firstModules: Seq[String]
+    firstModules: Seq[String],
+    product: NodeSeq
   ) = {
     where.mkdirs()
     IO.delete(where)
@@ -93,6 +94,7 @@ object Delivery {
             <module>{rootMap(m.container.root).getName}/{m.pathFromRoot.mkString("/")}</module>
           })
           }
+          <module>product</module>
         </modules>
       </project>
 
@@ -101,6 +103,33 @@ object Delivery {
       pp.format(pom)
     )
 
+    val productDir = new File(where, "product")
+    productDir.mkdirs()
+
+    val productPom =
+      <project xmlns="http://maven.apache.org/POM/4.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>{name}</groupId>
+        <artifactId>{name}-product</artifactId>
+        <version>{version}</version>
+        <packaging>jar</packaging>
+        <dependencies>
+          {
+          what.map({ w =>
+            w.pomDependency
+          })
+          }
+        </dependencies>
+        {product}
+      </project>
+
+    IO.write(
+      new File(productDir, "pom.xml"),
+      pp.format(productPom)
+    )
 
   }
 
