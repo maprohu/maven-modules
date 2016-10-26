@@ -57,6 +57,11 @@ case class Module(
       .flatMap(m => m +: m.depsTransitive)
   }
 
+  def depsTransitiveSelfLast : Seq[Module] = {
+    deps
+      .flatMap(m => m.depsTransitive :+ m)
+  }
+
   def filter(fn: Module => Boolean) : Module = {
     copy(
       deps = deps.filter(fn).map(_.filter(fn))
@@ -521,6 +526,8 @@ class NamedModule(
   def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
   def version = "2-SNAPSHOT"
   def asModule : Module = this
+  def pathFromRoot = path.tail
+
 
   def pomCoordinates = {
     <groupId>{groupId}</groupId>
@@ -543,6 +550,7 @@ class NamedModule(
     deps:_*
   ) { self =>
     lazy val releaseId = self.getClass.getName.reverse.drop(1).takeWhile(_ != '$').reverse.filter(_.isDigit)
+    override def pathFromRoot = super.pathFromRoot ++ Seq(ModuleRelease.ReleasesDirName, releaseId)
     override lazy val version = s"1.${releaseId}"
   }
 }

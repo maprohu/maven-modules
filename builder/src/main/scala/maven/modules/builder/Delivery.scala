@@ -1,7 +1,11 @@
 package maven.modules.builder
 
 import java.io.File
+
 import ammonite.ops._
+import sbt.io.IO
+
+import scala.xml.{PrettyPrinter, XML}
 
 /**
   * Created by pappmar on 26/10/2016.
@@ -10,6 +14,7 @@ object Delivery {
 
   val skips = Set(
     "target",
+    ".idea",
     ".git"
   )
 
@@ -29,25 +34,72 @@ object Delivery {
   }
 
   def run(
+    name: String,
+    version: String,
     what: Seq[NamedModule],
-    roots: Map[RootModuleContainer, File],
-    where: File
+    roots: Seq[(RootModuleContainer, File)],
+    where: File,
+    firstModules: Seq[String]
   ) = {
     where.mkdirs()
+    IO.delete(where)
+    where.mkdirs()
 
+    val rootMap = roots.toMap
 
-    what
-      .flatMap({ nm =>
-        nm
-          .asModule
-          .depsTransitive
-          .flatMap(_.source)
-      })
+    copySource(
+      pwd / up / "maven-modules",
+      Path(where.getAbsoluteFile)
+    )
+
+    val modules =
+      what
+        .flatMap({ nm =>
+          val m = nm
+            .asModule
+
+          (m.depsTransitive :+ m)
+            .flatMap(_.source)
+        })
+        .distinct
+
+    modules
       .map(_.container.root)
       .distinct
       .foreach({ rmc =>
-        copySource()
+        copySource(
+          Path(rootMap(rmc).getAbsoluteFile),
+          Path(where.getAbsoluteFile)
+        )
       })
+
+    val pp = new PrettyPrinter(1000, 2)
+    val pom =
+      <project xmlns="http://maven.apache.org/POM/4.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>{name}</groupId>
+        <artifactId>{name}</artifactId>
+        <version>{version}</version>
+        <packaging>pom</packaging>
+        <modules>
+          <module>maven-modules</module>
+          {
+          firstModules.map(m => <module>{m}</module>) ++
+          roots.map(r => <module>{r._2.getName}/modules</module>) ++
+          modules.map({ m =>
+            <module>{rootMap(m.container.root).getName}/{m.pathFromRoot.mkString("/")}</module>
+          })
+          }
+        </modules>
+      </project>
+
+    IO.write(
+      new File(where, "pom.xml"),
+      pp.format(pom)
+    )
 
 
   }
