@@ -121,13 +121,15 @@ object RunGenerateMaven {
     "libmatthew-debug-java:debug-disable:jar:1.1",
     "libunix-java:unix:jar:0.5",
     "libdbus-java:dbus:jar:2.8",
+    "libdbus-java:dbus-bin:jar:2.8",
     "org.orbisgis:h2spatial:jar:1.2.4",
     "org.orbisgis:h2spatial-ext:jar:1.2.4",
     "commons-dbcp:commons-dbcp:jar:1.4",
     "net.sf.bluecove:bluecove:jar:2.1.0",
     "net.sf.bluecove:bluecove-gpl:jar:2.1.0",
     "com.lihaoyi:autowire_2.11:jar:0.2.5",
-    "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3"
+    "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3",
+    "com.eed3si9n:treehugger_2.11:jar:0.4.1"
 
 
 
