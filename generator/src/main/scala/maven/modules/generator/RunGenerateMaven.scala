@@ -25,6 +25,7 @@ object RunGenerateMaven {
     "com.typesafe.akka:akka-stream_2.11:2.4.9",
     "com.typesafe.akka:akka-stream_2.11:2.4.11",
     "com.typesafe.akka:akka-slf4j_2.11:2.3.15",
+    "com.typesafe.akka:akka-slf4j_2.11:2.4.11",
     "javax.servlet:servlet-api:jar:2.5",
     "javax.servlet:javax.servlet-api:jar:3.1.0",
     "org.scala-lang:scala-library:jar:2.11.8",
