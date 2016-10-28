@@ -43,6 +43,7 @@ case class ModuleVersion(
     version.compareTo(mmv.version)
   }
   def moduleId: ModuleId = mavenModuleId
+  def isSnapshot = version.toString.endsWith("-SNAPSHOT")
 }
 
 case class Module(
@@ -82,9 +83,13 @@ case class Module(
 
   def asProvided : Module = copy(provided = true)
 
-  def isSnapshot = version.version.toString.endsWith("-SNAPSHOT")
+  def isSnapshot = version.isSnapshot
 
   def asString = s"${version.mavenModuleId.groupId}:${version.mavenModuleId.artifactId}:${version.version.toString}"
+
+  def toSeq : Seq[Module] = {
+    this +: deps.flatMap(_.toSeq)
+  }
 }
 
 

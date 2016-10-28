@@ -133,4 +133,19 @@ object Delivery {
 
   }
 
+  def listSnapshots(
+    what: Seq[NamedModule]
+  ) = {
+    println(
+      what
+        .flatMap(_.asModule.toSeq)
+        .map(_.version)
+        .distinct
+        .filter(_.isSnapshot)
+        .map(_.toString)
+        .sorted
+        .mkString("\n")
+    )
+  }
+
 }
