@@ -73,6 +73,7 @@ object RunGenerateMaven {
     "com.oracle:wlfullclient:jar:12.1.3.0",
     "com.oracle:wlthint3client:jar:10.3.6.0",
     "com.lihaoyi:ammonite-ops_2.11:jar:0.7.7",
+    "com.lihaoyi:ammonite-ops_2.11:jar:0.7.8",
     "org.scala-lang.modules:scala-xml_2.11:jar:1.0.6",
     "com.sun.xml.bind:jaxb-xjc:jar:2.2.11",
     "com.sun.xml.bind:jaxb-impl:jar:2.2.11",
