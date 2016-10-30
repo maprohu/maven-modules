@@ -58,6 +58,7 @@ object RunGenerateMaven {
     "org.scala-lang.modules:scala-swing_2.11:jar:2.0.0-M2",
     "io.monix:monix_2.11:jar:2.0.2",
     "io.monix:monix_2.11:jar:2.0.4",
+    "io.monix:monix_2.11:jar:2.0.5",
     "de.heikoseeberger:akka-http-json4s_2.11:jar:1.9.0",
     "org.json4s:json4s-native_2.11:jar:3.4.0",
 //    "emsa:wupdata-common-shared:jar:1.0.4-SNAPSHOT",
@@ -132,7 +133,8 @@ object RunGenerateMaven {
     "net.sf.bluecove:bluecove-gpl:jar:2.1.0",
     "com.lihaoyi:autowire_2.11:jar:0.2.5",
     "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3",
-    "com.eed3si9n:treehugger_2.11:jar:0.4.1"
+    "com.eed3si9n:treehugger_2.11:jar:0.4.1",
+    "com.jsyn:jsyn:jar:16.7.6"
 
 
 
