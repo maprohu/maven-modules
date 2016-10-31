@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>mvnmod</groupId>
     <artifactId>mvnmod-modules</artifactId>
-    <version>1.0.0</version>
+    <version>2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <build>
         <finalName>product</finalName>
@@ -68,18 +68,55 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <mkdir dir="${basedir}/target/classes/META-INF"/>
+                                <tstamp>
+                                    <format property="last.updated" pattern="yyyyMMddHHmmssSSS"/>
+                                </tstamp>
+                                <echo file="${basedir}/target/classes/META-INF/build.timestamp" message="${last.updated}"/>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies> </dependencies>
+    </dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>mvnmod</groupId>
+            <artifactId>mvnmod-builder</artifactId>
+            <version>2-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>2.11.8</version>
         </dependency>
-        <dependency>
-            <groupId>mvnmod</groupId>
-            <version>2-SNAPSHOT</version>
-            <artifactId>mvnmod-builder</artifactId>
-        </dependency>
     </dependencies>
+    <repositories> </repositories>
 </project>

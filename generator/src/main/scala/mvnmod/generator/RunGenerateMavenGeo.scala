@@ -1,4 +1,4 @@
-package maven.modules.generator
+package mvnmod.generator
 
 import java.io.File
 import java.net.URLEncoder
