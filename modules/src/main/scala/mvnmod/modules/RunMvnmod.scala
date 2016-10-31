@@ -19,7 +19,11 @@ object RunMvnmod {
   )
 
   val Modules = Seq[ConfiguredModule](
-    MvnmodModules.Modules
+    MvnmodModules.Modules,
+    MvnmodModules.Utils,
+    MvnmodModules.Poms,
+    MvnmodModules.Builder,
+    MvnmodModules.Generator
   )
 
   def main(args: Array[String]): Unit = {
