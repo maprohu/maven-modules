@@ -3,12 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>maven-modules</groupId>
-        <artifactId>maven-modules</artifactId>
-        <version>1.0.0</version>
-    </parent>
-    <artifactId>maven-modules-builder</artifactId>
+    <groupId>mvnmod</groupId>
+    <version>2-SNAPSHOT</version>
+    <artifactId>mvnmod-builder</artifactId>
     <packaging>jar</packaging>
 
     <build>
@@ -46,9 +43,9 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>maven-modules</groupId>
-            <artifactId>maven-modules-poms</artifactId>
-            <version>1.0.0</version>
+            <groupId>mvnmod</groupId>
+            <version>2-SNAPSHOT</version>
+            <artifactId>mvnmod-poms</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eclipse.aether</groupId>

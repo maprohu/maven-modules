@@ -2,12 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>maven-modules</groupId>
-        <artifactId>maven-modules</artifactId>
-        <version>1.0.0</version>
-    </parent>
-    <artifactId>maven-modules-poms</artifactId>
+    <groupId>mvnmod</groupId>
+    <version>2-SNAPSHOT</version>
+    <artifactId>mvnmod-poms</artifactId>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
@@ -50,9 +48,9 @@
             <version>2.11.8</version>
         </dependency>
         <dependency>
-            <groupId>maven-modules</groupId>
-            <artifactId>maven-modules-utils</artifactId>
-            <version>1.0.0</version>
+            <groupId>mvnmod</groupId>
+            <artifactId>mvnmod-utils</artifactId>
+            <version>2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

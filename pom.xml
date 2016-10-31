@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>modules</module>
         <module>generator</module>
         <module>utils</module>
         <module>poms</module>
