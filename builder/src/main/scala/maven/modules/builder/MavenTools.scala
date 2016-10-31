@@ -60,14 +60,25 @@ object MavenTools {
     goals : Seq[String],
     preBuild: File => Unit = _ => ()
   )( andThen : File => T ) : T = {
+    runMavens(
+      ProjectDef(
+        null,
+        pomFileString,
+        preBuild
+      ),
+      goals
+    )(andThen)
+
+  }
+
+  def runMavens[T](
+    projectDef: ProjectDef,
+    goals : Seq[String]
+  )( andThen : File => T ) : T = {
     try {
       inTempDir { dir =>
         try {
-          val pomFile = new File(dir, "pom.xml")
-
-          XML.save(pomFile.getAbsolutePath, pomFileString)
-
-          preBuild(dir)
+          val pomFile = createProject(projectDef, dir)
 
           val request = new DefaultInvocationRequest
           request.setPomFile(pomFile)
@@ -120,6 +131,31 @@ object MavenTools {
       {content}
     </project>
 
+  }
+
+  case class ProjectDef(
+    coordinates: MavenCoordinatesImpl,
+    pom: Node,
+    preBuild: File => Unit
+  )
+
+  lazy val pp = new PrettyPrinter(1000, 2)
+  def createProject(
+    projectDef: ProjectDef,
+    dir: File
+  ) = {
+    dir.mkdirs()
+
+    val pomFile =
+      new File(dir, "pom.xml")
+    IO.write(
+      pomFile,
+      pp.format(projectDef.pom)
+    )
+
+    projectDef.preBuild(dir)
+
+    pomFile
   }
 
 

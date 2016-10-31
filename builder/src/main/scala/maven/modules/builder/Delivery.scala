@@ -40,7 +40,8 @@ object Delivery {
     roots: Seq[(RootModuleContainer, File)],
     where: File,
     firstModules: Seq[String],
-    product: NodeSeq
+    lastModules: Seq[String]
+//    product: NodeSeq
   ) = {
     where.mkdirs()
     IO.delete(where)
@@ -48,10 +49,10 @@ object Delivery {
 
     val rootMap = roots.toMap
 
-    copySource(
-      pwd / up / "maven-modules",
-      Path(where.getAbsoluteFile)
-    )
+//    copySource(
+//      pwd / up / "maven-modules",
+//      Path(where.getAbsoluteFile)
+//    )
 
     val modules =
       what
@@ -86,15 +87,13 @@ object Delivery {
         <version>{version}</version>
         <packaging>pom</packaging>
         <modules>
-          <module>maven-modules</module>
           {
           firstModules.map(m => <module>{m}</module>) ++
-          roots.map(r => <module>{r._2.getName}/modules</module>) ++
           modules.map({ m =>
             <module>{rootMap(m.container.root).getName}/{m.pathFromRoot.mkString("/")}</module>
-          })
+          }) ++
+          lastModules.map(m => <module>{m}</module>)
           }
-          <module>product</module>
         </modules>
       </project>
 
@@ -103,33 +102,33 @@ object Delivery {
       pp.format(pom)
     )
 
-    val productDir = new File(where, "product")
-    productDir.mkdirs()
-
-    val productPom =
-      <project xmlns="http://maven.apache.org/POM/4.0.0"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-
-        <groupId>{name}</groupId>
-        <artifactId>{name}-product</artifactId>
-        <version>{version}</version>
-        <packaging>jar</packaging>
-        <dependencies>
-          {
-          what.map({ w =>
-            w.pomDependency
-          })
-          }
-        </dependencies>
-        {product}
-      </project>
-
-    IO.write(
-      new File(productDir, "pom.xml"),
-      pp.format(productPom)
-    )
+//    val productDir = new File(where, "product")
+//    productDir.mkdirs()
+//
+//    val productPom =
+//      <project xmlns="http://maven.apache.org/POM/4.0.0"
+//               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+//               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+//        <modelVersion>4.0.0</modelVersion>
+//
+//        <groupId>{name}</groupId>
+//        <artifactId>{name}-product</artifactId>
+//        <version>{version}</version>
+//        <packaging>jar</packaging>
+//        <dependencies>
+//          {
+//          what.map({ w =>
+//            w.pomDependency
+//          })
+//          }
+//        </dependencies>
+//        {product}
+//      </project>
+//
+//    IO.write(
+//      new File(productDir, "pom.xml"),
+//      pp.format(productPom)
+//    )
 
   }
 

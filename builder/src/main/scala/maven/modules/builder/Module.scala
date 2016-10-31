@@ -523,6 +523,7 @@ class NamedModule(
   val name: String,
   val deps: Module*
 ) extends ContainedModule with DeployableModule {
+
   def path : Seq[String] = container.path :+ name
   def parent: ModuleContainer = container
   def groupId = container.root.groupId
