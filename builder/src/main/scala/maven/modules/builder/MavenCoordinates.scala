@@ -24,6 +24,7 @@ final case class MavenCoordinatesImpl(
 
 object MavenCoordinatesImpl extends HasMavenCoordinatesImplicits {
 
+
   //  implicit def fromCJR(cjk: CaseJarKey) : MavenCoordinatesImpl = {
   //    cjk match {
   //      case m :MavenJarKeyImpl
@@ -85,7 +86,7 @@ trait HasMavenCoordinatesImplicits {
     MavenCoordinatesImpl(
       module.mavenModuleId.groupId,
       module.mavenModuleId.artifactId,
-      module.version.toString
+      module.mavenVersion.toString
     )
   }
 

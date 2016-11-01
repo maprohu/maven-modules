@@ -15,15 +15,15 @@ import scala.collection.immutable._
   * Created by pappmar on 29/08/2016.
   */
 
-object Implicits extends ModulesLike
-trait ModulesLike {
-  implicit class MavenOps(mvn: MavenCentralModule) {
-    def provided : Module = {
-      val m = mvn:Module
-      m.copy(provided = true)
-    }
-  }
-}
+//object Implicits extends ModulesLike
+//trait ModulesLike {
+////  implicit class MavenOps(mvn: MavenCentralModule) {
+////    def provided : Module = {
+////      val m = mvn:Module
+////      m.copy(provided = true)
+////    }
+////  }
+//}
 
 
 
@@ -35,24 +35,28 @@ case class ModuleId(
 
 case class ModuleVersion(
   mavenModuleId: ModuleId,
-  version: Version
-) extends Comparable[ModuleVersion] {
+  mavenVersion: Version
+) extends Comparable[ModuleVersion] with HasMavenCoordinates {
   def compareTo(o: ModuleVersion): Int = {
     val mmv = o.asInstanceOf[ModuleVersion]
     require(moduleId == mmv.moduleId)
-    version.compareTo(mmv.version)
+    mavenVersion.compareTo(mmv.mavenVersion)
   }
   def moduleId: ModuleId = mavenModuleId
-  def isSnapshot = version.toString.endsWith("-SNAPSHOT")
+//  override def isSnapshot = version.toString.endsWith("-SNAPSHOT")
+  override def groupId: String = mavenModuleId.groupId
+  override def artifactId: String = mavenModuleId.artifactId
+  override def classifier: Option[String] = mavenModuleId.classifier
+  override def version: String = mavenVersion.toString
 }
 
 case class Module(
   val version: ModuleVersion,
   val deps: Seq[Module],
   val repos: Seq[Repo],
-  val source: Option[NamedModule],
-  val provided : Boolean = false
+  val source: Option[NamedModule]
 ) {
+
   def depsTransitive : Seq[Module] = {
     deps
       .flatMap(m => m +: m.depsTransitive)
@@ -75,27 +79,78 @@ case class Module(
     )
   }
 
-  def flatten : Module = {
-    copy(
-      deps = depsTransitive.distinct.map(_.flatten)
-    )
-  }
+//  def flatten : Module = {
+//    copy(
+//      deps = depsTransitive.distinct.map(_.flatten)
+//    )
+//  }
 
-  def asProvided : Module = copy(provided = true)
+//  def asProvided : Module = copy(provided = true)
 
   def isSnapshot = version.isSnapshot
 
-  def asString = s"${version.mavenModuleId.groupId}:${version.mavenModuleId.artifactId}:${version.version.toString}"
+  def asString = s"${version.mavenModuleId.groupId}:${version.mavenModuleId.artifactId}:${version.mavenVersion.toString}"
 
-  def toSeq : Seq[Module] = {
+  lazy val toSeq : Seq[Module] = {
     this +: deps.flatMap(_.toSeq)
+  }
+
+  lazy val latestMap =
+    toSeq
+      .groupBy(_.version.mavenModuleId)
+      .mapValues(_.maxBy(_.version.mavenVersion))
+
+  lazy val resolve:  Module = {
+
+    def mapper(m: Module) : Module = {
+      latestMap(m.version.mavenModuleId)
+        .map(mapper)
+    }
+
+    map(mapper)
+  }
+
+  def forTarget(
+    target: ModulePath
+  ) : Module = {
+    val targetModules =
+      target
+        .toSeq
+        .foldLeft(Map.empty[ModuleId, Module])({ (acc, elem) =>
+          acc ++ elem.latestMap
+        })
+        .mapValues(_.version)
+        .values
+        .toSet
+
+    resolve
+      .filter(m => !targetModules.contains(m.version))
+  }
+
+  lazy val classPath = {
+    toSeq
+      .map(_.version)
+      .distinct
+  }
+
+}
+
+case class ModulePath(
+  module: Module,
+  parent: Option[ModulePath]
+) {
+  def toSeq : Seq[Module] = {
+    parent
+      .to[Seq]
+      .flatMap(_.toSeq)
+      .:+(module)
   }
 }
 
 
 
 object Module {
-  def provided(module: Module) : Module = module.copy(provided = true)
+//  def provided(module: Module) : Module = module.copy(provided = true)
 
   val versionScheme = new GenericVersionScheme
 
@@ -336,7 +391,7 @@ object Module {
     def coords(dep: ModuleVersion) = (
       <groupId>{dep.moduleId.groupId}</groupId>
         <artifactId>{dep.moduleId.artifactId}</artifactId>
-        <version>{dep.version.toString}</version> &+
+        <version>{dep.mavenVersion.toString}</version> &+
         dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
       )
 
@@ -446,35 +501,14 @@ object Module {
             </plugin>
           </plugins>
         </build>
-        <dependencyManagement>
-          <dependencies>
-            {
-            //                module
-            //                  .deps
-            //                  .flatMap(_.deps)
-            //                  .map(_.version)
-            //                  .groupBy(_.mavenModuleId)
-            //                  .map(_._2.maxBy(_.version))
-            //                  .map({ m =>
-            //                    <dependency>
-            //                      {coords(m)}
-            //                      <scope>runtime</scope>
-            //                    </dependency>
-            //                  })
-            }
-          </dependencies>
-        </dependencyManagement>
         <dependencies>
           {
           module
             .deps
-            .map(m => (m.version, m.provided))
-            .collect({ case (dep : ModuleVersion, provided) =>
+            .map(m => m.version)
+            .collect({ case dep : ModuleVersion =>
               <dependency>
                 {coords(dep)}
-                {
-                //                      if (provided) <scope>provided</scope> else <scope>compile</scope>
-                }
               </dependency>
             })
           }
@@ -561,18 +595,18 @@ class NamedModule(
   }
 }
 
-class JavaModule(
-  name: String,
-  deps: Module*
-)(implicit
-  container: ModuleContainer
-) extends NamedModule (
-  container,
-  name,
-  (deps ++ Seq[Module](
-    Module.provided(mvn.`org.scala-lang:scala-library:jar:2.11.8`)
-  )):_*
-)
+//class JavaModule(
+//  name: String,
+//  deps: Module*
+//)(implicit
+//  container: ModuleContainer
+//) extends NamedModule (
+//  container,
+//  name,
+//  (deps ++ Seq[Module](
+//    Module.provided(mvn.`org.scala-lang:scala-library:jar:2.11.8`)
+//  )):_*
+//)
 
 object ScalaModule {
 
