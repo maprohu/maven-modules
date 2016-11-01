@@ -136,7 +136,8 @@ object RunGenerateMaven {
     "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3",
     "com.eed3si9n:treehugger_2.11:jar:0.4.1",
     "com.jsyn:jsyn:jar:16.7.6",
-    "org.eclipse.aether:aether-util:jar:1.1.0"
+    "org.eclipse.aether:aether-util:jar:1.1.0",
+    "org.iq80.leveldb:leveldb:jar:0.9"
 
 
 
