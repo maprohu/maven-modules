@@ -137,11 +137,15 @@ object RunGenerateMaven {
     "com.eed3si9n:treehugger_2.11:jar:0.4.1",
     "com.jsyn:jsyn:jar:16.7.6",
     "org.eclipse.aether:aether-util:jar:1.1.0",
-    "org.iq80.leveldb:leveldb:jar:0.9"
+    "org.iq80.leveldb:leveldb:jar:0.9",
+    "org.fusesource.leveldbjni:leveldbjni-all:jar:1.8",
+    "org.fusesource.leveldbjni:leveldbjni-linux64:jar:1.8"
 
 
 
-//    "android-api:android-api:jar:22",
+
+
+  //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
   )
 
