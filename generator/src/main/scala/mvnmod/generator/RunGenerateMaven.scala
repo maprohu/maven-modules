@@ -149,7 +149,7 @@ object RunGenerateMaven {
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
   )
 
-  val root = new File("../maven-modules/poms/src/main/scala/mvn")
+  val root = new File("../maven-modules/builder/src/main/scala/mvn")
 
   def process(canonical: String) : Unit = {
     val resolveds =
@@ -189,7 +189,7 @@ object RunGenerateMaven {
         s"""
            |package mvn
            |
-           |object `${canonical}` extends _root_.mvnmod.poms.MavenCentralModule(
+           |object `${canonical}` extends _root_.mvnmod.builder.MavenCentralModule(
            |${args}
            |)
          """.stripMargin

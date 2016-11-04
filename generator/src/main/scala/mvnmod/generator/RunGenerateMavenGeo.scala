@@ -21,7 +21,7 @@ object RunGenerateMavenGeo {
     "org.geotools:gt-jdbc:jar:11.5"
   )
 
-  val root = new File("../maven-modules/poms/src/main/scala/mvn")
+  val root = new File("../maven-modules/builder/src/main/scala/mvn")
 
   def process(canonical: String) : Unit = {
     val resolveds =
@@ -63,7 +63,7 @@ object RunGenerateMavenGeo {
         s"""
            |package mvn
            |
-           |object `${canonical}` extends _root_.mvnmod.poms.GeotoolsMoule(
+           |object `${canonical}` extends _root_.mvnmod.builder.GeotoolsMoule(
            |${args}
            |)
          """.stripMargin
