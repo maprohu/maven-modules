@@ -71,6 +71,7 @@ object MavenTools {
 
   }
 
+
   def runMavens[T](
     projectDef: ProjectDef,
     goals : Seq[String]
@@ -115,10 +116,6 @@ object MavenTools {
     require(result.getExitCode == 0)
   }
 
-//  def pom(content: Node) : Elem = {
-//    pom(content:NodeBuffer)
-//  }
-//
   def pom(content: NodeSeq) : Elem = {
     <project xmlns="http://maven.apache.org/POM/4.0.0"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -130,7 +127,19 @@ object MavenTools {
       <version>1.0.0-SNAPSHOT</version>
       {content}
     </project>
+  }
 
+  def pom(
+    hasMavenCoordinates: HasMavenCoordinates,
+    content: NodeSeq
+  ) : Node = {
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+      {hasMavenCoordinates.asPomCoordinates}
+      {content}
+    </project>
   }
 
   case class ProjectDef(
@@ -138,6 +147,49 @@ object MavenTools {
     pom: Node,
     preBuild: File => Unit
   )
+
+  object ProjectDef {
+    def multi(
+      coordinates: MavenCoordinatesImpl,
+      modules: ProjectDef*
+    ) : ProjectDef = {
+      namedMulti(
+        coordinates,
+        modules
+          .map(d => d.coordinates.artifactId -> d):_*
+      )
+    }
+
+    def namedMulti(
+      coordinates: MavenCoordinatesImpl,
+      modules: (String, ProjectDef)*
+    ) : ProjectDef = {
+      ProjectDef.apply(
+        coordinates = coordinates,
+        pom = pom(
+          coordinates,
+          <packaging>pom</packaging>
+          <modules>
+            {
+            modules.map({ case (id, _) =>
+              <module>{id}</module>
+            })
+            }
+          </modules>
+        ),
+        preBuild = { dir =>
+          modules.foreach({
+            case (id, pd) =>
+              createProject(
+                pd,
+                new File(dir, id)
+              )
+          })
+        }
+      )
+
+    }
+  }
 
   lazy val pp = new PrettyPrinter(1000, 2)
   def createProject(
