@@ -30,14 +30,17 @@ object RunMvnmodRelease {
 
 object RunMvnmodReleaseInstall {
   def main(args: Array[String]): Unit = {
-    RunMvnmodRelease.Releases.foreach { r =>
-      println(r.getClass.getName)
+    RunMvnmodRelease
+      .Releases
+      .reverse
+      .foreach { r =>
+        println(r.getClass.getName)
 
-      ModuleRelease.installRelease(
-        RunMvnmod.Roots,
-        r
-      )
-    }
+        ModuleRelease.installRelease(
+          RunMvnmod.Roots,
+          r
+        )
+      }
 
   }
 }
