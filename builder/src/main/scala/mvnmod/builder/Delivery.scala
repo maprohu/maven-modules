@@ -43,10 +43,6 @@ object Delivery {
     lastModules: Seq[String]
 //    product: NodeSeq
   ) = {
-    where.mkdirs()
-    IO.delete(where)
-    where.mkdirs()
-
     val rootMap = roots.toMap
 
 //    copySource(

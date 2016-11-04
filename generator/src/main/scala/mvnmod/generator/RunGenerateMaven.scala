@@ -139,7 +139,9 @@ object RunGenerateMaven {
     "org.eclipse.aether:aether-util:jar:1.1.0",
     "org.iq80.leveldb:leveldb:jar:0.9",
     "org.fusesource.leveldbjni:leveldbjni-all:jar:1.8",
-    "org.fusesource.leveldbjni:leveldbjni-linux64:jar:1.8"
+    "org.fusesource.leveldbjni:leveldbjni-linux64:jar:1.8",
+    "org.tmatesoft.svnkit:svnkit:jar:1.8.5"
+
 
 
 
