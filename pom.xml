@@ -15,7 +15,6 @@
     </build>
     <modules>
         <module>modules</module>
-        <module>utils</module>
         <module>poms</module>
         <module>builder</module>
         <module>generator</module>

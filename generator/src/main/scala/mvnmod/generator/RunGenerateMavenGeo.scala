@@ -63,7 +63,7 @@ object RunGenerateMavenGeo {
         s"""
            |package mvn
            |
-           |object `${canonical}` extends _root_.maven.modules.utils.GeotoolsMoule(
+           |object `${canonical}` extends _root_.mvnmod.poms.GeotoolsMoule(
            |${args}
            |)
          """.stripMargin

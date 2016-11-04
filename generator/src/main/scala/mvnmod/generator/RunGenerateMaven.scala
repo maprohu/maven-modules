@@ -189,7 +189,7 @@ object RunGenerateMaven {
         s"""
            |package mvn
            |
-           |object `${canonical}` extends _root_.maven.modules.utils.MavenCentralModule(
+           |object `${canonical}` extends _root_.mvnmod.poms.MavenCentralModule(
            |${args}
            |)
          """.stripMargin

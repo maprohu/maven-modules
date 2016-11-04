@@ -2,7 +2,7 @@ package maven.modules.builder
 
 import java.net.URLEncoder
 
-import maven.modules.utils.MavenCentralModule
+import mvnmod.poms.MavenCentralModule
 
 import scala.xml.NodeBuffer
 

@@ -3,7 +3,7 @@ package maven.modules.builder
 import java.io.File
 
 import maven.modules.builder.Module.{ConfiguredModule, DeployableModule, Java7, Java8}
-import maven.modules.utils.{MavenCentralModule, Repo}
+import mvnmod.poms.{MavenCentralModule, Repo}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -630,6 +630,7 @@ class ScalaModule(
   name,
   ScalaModule.deps(deps):_*
 ) {
+  def snapshot = this
 
   class Release(
     deps: Module*

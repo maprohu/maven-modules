@@ -1,7 +1,7 @@
 package mvnmod.modules
 
 import maven.modules.builder.{RootModuleContainer, ScalaModule}
-import maven.modules.utils.MavenCentralModule
+import mvnmod.poms.MavenCentralModule
 
 
 /**
@@ -12,25 +12,28 @@ object MvnmodModules {
   implicit val Root = RootModuleContainer("mvnmod")
 
 
-  object Utils extends ScalaModule(
-    "utils",
-    mvn.`org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api-maven:jar:2.2.2`
-  )
-
   object Poms extends ScalaModule(
     "poms",
-    Utils
-  )
+    mvn.`org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api-maven:jar:2.2.2`
+  ) {
+    val Snapshot = snapshot
+
+    object R1 extends Release(
+      mvn.`org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api-maven:jar:2.2.2`
+    )
+  }
 
   object Builder extends ScalaModule(
     "builder",
-    Poms,
+    Poms.R1,
     mvn.`org.eclipse.aether:aether-util:jar:1.1.0`,
     mvn.`org.scala-sbt:io_2.11:jar:1.0.0-M3`,
     mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`,
     mvn.`com.lihaoyi:ammonite-ops_2.11:jar:0.7.8`,
     mvn.`org.apache.maven.shared:maven-invoker:2.2`
-  )
+  ) {
+
+  }
 
   object Modules extends ScalaModule(
     "modules",

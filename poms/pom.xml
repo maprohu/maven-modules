@@ -103,14 +103,11 @@
             </plugin>
         </plugins>
     </build>
-    <dependencyManagement>
-        <dependencies> </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>mvnmod</groupId>
-            <artifactId>mvnmod-utils</artifactId>
-            <version>2-SNAPSHOT</version>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-api-maven</artifactId>
+            <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
