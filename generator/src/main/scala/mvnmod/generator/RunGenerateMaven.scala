@@ -144,7 +144,9 @@ object RunGenerateMaven {
     "org.fusesource.leveldbjni:leveldbjni-all:jar:1.8",
     "org.fusesource.leveldbjni:leveldbjni-linux64:jar:1.8",
     "org.tmatesoft.svnkit:svnkit:jar:1.8.5",
-    "com.github.romix.akka:akka-kryo-serialization_2.11:jar:0.5.0"
+    "com.github.romix.akka:akka-kryo-serialization_2.11:jar:0.5.0",
+    "com.typesafe.akka:akka-http-spray-json-experimental_2.11:jar:2.0.5"
+
 
 
 
