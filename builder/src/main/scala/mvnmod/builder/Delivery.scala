@@ -43,6 +43,7 @@ object Delivery {
     lastModules: Seq[String]
 //    product: NodeSeq
   ) = {
+    println(s"delivering ${name} - ${version} to ${where}")
     val rootMap = roots.toMap
 
 //    copySource(
