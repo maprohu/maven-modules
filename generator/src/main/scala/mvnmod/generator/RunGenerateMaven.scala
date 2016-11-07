@@ -143,7 +143,9 @@ object RunGenerateMaven {
     "org.iq80.leveldb:leveldb:jar:0.7",
     "org.fusesource.leveldbjni:leveldbjni-all:jar:1.8",
     "org.fusesource.leveldbjni:leveldbjni-linux64:jar:1.8",
-    "org.tmatesoft.svnkit:svnkit:jar:1.8.5"
+    "org.tmatesoft.svnkit:svnkit:jar:1.8.5",
+    "com.github.romix.akka:akka-kryo-serialization_2.11:jar:0.5.0"
+
 
 
 
