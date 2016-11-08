@@ -12,7 +12,8 @@ object PackagingTools {
         mvn.`org.scala-lang:scala-library:jar:2.11.8`,
         mvn.`com.typesafe:config:jar:1.2.1`,
         mvn.`emsa.ssn:ssn-spm-domain:jar:1.0.5.2`,
-        mvn.`emsa.ssn:ssn-vdm-support:jar:1.0.5.2`
+        mvn.`emsa.ssn:ssn-vdm-support:jar:1.0.5.2`,
+        mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`
       )
       .map(Module.central2Module)
       .map(_.version.moduleId)
@@ -77,10 +78,24 @@ object PackagingTools {
         .mkString("\n")
     )
 
+  }
 
 
+  def listSnapshots(
+    modules: Seq[NamedModule]
+  ) = {
 
-
+    println(
+      modules
+        .flatMap(_.toSeq)
+        .filter(_.isSnapshot)
+        .reverse
+        .distinct
+        .map(_.version.mavenModuleId)
+        .map(m => s"${m.groupId} - ${m.artifactId}")
+        .reverse
+        .mkString("\n")
+    )
 
   }
 

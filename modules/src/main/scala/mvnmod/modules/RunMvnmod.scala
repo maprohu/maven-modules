@@ -19,6 +19,7 @@ object RunMvnmod {
   )
 
   val Modules = Seq[ConfiguredModule](
+    MvnmodModules.Common,
     MvnmodModules.Modules,
     MvnmodModules.Builder,
     MvnmodModules.Generator

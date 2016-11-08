@@ -14,6 +14,7 @@
         </plugins>
     </build>
     <modules>
+        <module>common</module>
         <module>modules</module>
         <module>builder</module>
         <module>generator</module>
