@@ -61,6 +61,7 @@ object RunGenerateMaven {
     "io.monix:monix_2.11:jar:2.0.2",
     "io.monix:monix_2.11:jar:2.0.4",
     "io.monix:monix_2.11:jar:2.0.5",
+    "io.monix:monix_2.11:jar:2.0.6",
     "de.heikoseeberger:akka-http-json4s_2.11:jar:1.9.0",
     "org.json4s:json4s-native_2.11:jar:3.4.0",
 //    "emsa:wupdata-common-shared:jar:1.0.4-SNAPSHOT",
