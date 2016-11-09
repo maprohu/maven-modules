@@ -150,7 +150,13 @@ object RunGenerateMaven {
     "org.apache.axis:axis:jar:1.4",
     "commons-discovery:commons-discovery:jar:0.5",
     "wsdl4j:wsdl4j:jar:1.5.1",
-    "axis:axis:jar:1.4"
+    "axis:axis:jar:1.4",
+    "com.typesafe.akka:akka-camel_2.11:jar:2.3.15",
+    "org.apache.camel:camel-sjms:jar:2.18.0",
+    "org.apache.camel:camel-jms:jar:2.18.0",
+    "org.apache.camel:camel-core:jar:2.18.0"
+
+
 
 
 
