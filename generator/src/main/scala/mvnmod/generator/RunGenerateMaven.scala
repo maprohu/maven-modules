@@ -152,9 +152,12 @@ object RunGenerateMaven {
     "wsdl4j:wsdl4j:jar:1.5.1",
     "axis:axis:jar:1.4",
     "com.typesafe.akka:akka-camel_2.11:jar:2.3.15",
+    "org.apache.camel:camel-jms:jar:2.13.4",
+    "org.apache.camel:camel-core:jar:2.13.4",
     "org.apache.camel:camel-sjms:jar:2.18.0",
     "org.apache.camel:camel-jms:jar:2.18.0",
-    "org.apache.camel:camel-core:jar:2.18.0"
+    "org.apache.camel:camel-core:jar:2.18.0",
+    "org.slf4j:jcl-over-slf4j:jar:1.7.21"
 
 
 
