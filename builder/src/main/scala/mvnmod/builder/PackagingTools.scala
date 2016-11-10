@@ -13,7 +13,8 @@ object PackagingTools {
         mvn.`com.typesafe:config:jar:1.2.1`,
         mvn.`emsa.ssn:ssn-spm-domain:jar:1.0.5.2`,
         mvn.`emsa.ssn:ssn-vdm-support:jar:1.0.5.2`,
-        mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`
+        mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`,
+        mvn.`org.apache.camel:camel-core:jar:2.18.0`
       )
       .map(Module.central2Module)
       .map(_.version.moduleId)
