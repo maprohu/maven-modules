@@ -38,6 +38,28 @@ case class Repo(
   url: String
 )
 
+object MavenCentralModule {
+  object Implicits {
+    implicit class MavenCentralModuleOps(m: MavenCentralModule) {
+      def exclude(
+        modules: Module*
+      ) : Module = {
+        val excludes =
+          modules
+            .map(_.version.moduleId)
+            .toSet
+
+        Module
+          .central2Module(m)
+          .filter({ e =>
+            !excludes.contains(e.version.moduleId)
+          })
+      }
+
+    }
+  }
+}
+
 class MavenCentralModule(
   val groupId: String,
   val artifactId: String,

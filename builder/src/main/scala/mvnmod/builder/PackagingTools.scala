@@ -17,7 +17,10 @@ object PackagingTools {
         mvn.`emsa.ssn:ssn-vdm-support:jar:1.0.5.2`,
         mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`,
         mvn.`org.apache.camel:camel-core:jar:2.18.0`,
-        mvn.`com.sun.xml.bind:jaxb-impl:jar:2.2.11`
+        mvn.`com.sun.xml.bind:jaxb-impl:jar:2.2.11`,
+        mvn.`org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4`,
+        mvn.`org.scala-lang:scala-reflect:jar:2.11.8`,
+        mvn.`com.vividsolutions:jts:jar:1.13`
       )
       .map(Module.central2Module)
       .map(_.version.moduleId)

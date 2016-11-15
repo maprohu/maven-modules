@@ -198,11 +198,12 @@ object MavenTools {
   ) = {
     dir.mkdirs()
 
-    val pomFile =
-      new File(dir, "pom.xml")
+    val pomFile = new File(dir, "pom.xml")
+    val pomString = pp.format(projectDef.pom)
+    println(pomString)
     IO.write(
       pomFile,
-      pp.format(projectDef.pom)
+      pomString
     )
 
     projectDef.preBuild(dir)
