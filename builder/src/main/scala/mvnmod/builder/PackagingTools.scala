@@ -16,7 +16,8 @@ object PackagingTools {
         mvn.`emsa.ssn:ssn-spm-domain:jar:1.0.5.2`,
         mvn.`emsa.ssn:ssn-vdm-support:jar:1.0.5.2`,
         mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`,
-        mvn.`org.apache.camel:camel-core:jar:2.18.0`
+        mvn.`org.apache.camel:camel-core:jar:2.18.0`,
+        mvn.`com.sun.xml.bind:jaxb-impl:jar:2.2.11`
       )
       .map(Module.central2Module)
       .map(_.version.moduleId)
