@@ -157,20 +157,9 @@ object RunGenerateMaven {
     "org.apache.camel:camel-sjms:jar:2.18.0",
     "org.apache.camel:camel-jms:jar:2.18.0",
     "org.apache.camel:camel-core:jar:2.18.0",
-    "org.slf4j:jcl-over-slf4j:jar:1.7.21"
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "org.slf4j:jcl-over-slf4j:jar:1.7.21",
+    "org.docx4j:docx4j:jar:3.3.1",
+    "org.docx4j:docx4j-ImportXHTML:jar:3.3.1"
 
   //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
