@@ -129,7 +129,7 @@ object RunGenerateMaven {
     "libmatthew-debug-java:debug-disable:jar:1.1",
     "libunix-java:unix:jar:0.5",
     "libdbus-java:dbus:jar:2.8",
-    "libdbus-java:dbus-bin:jar:2.8",
+//    "libdbus-java:dbus-bin:jar:2.8",
     "org.orbisgis:h2spatial:jar:1.2.4",
     "org.orbisgis:h2spatial-ext:jar:1.2.4",
     "commons-dbcp:commons-dbcp:jar:1.4",
@@ -138,7 +138,7 @@ object RunGenerateMaven {
     "com.lihaoyi:autowire_2.11:jar:0.2.5",
     "com.github.maprohu:scalajs-o3d_sjs0.6_2.11:jar:0.1.3",
     "com.eed3si9n:treehugger_2.11:jar:0.4.1",
-    "com.jsyn:jsyn:jar:16.7.6",
+//    "com.jsyn:jsyn:jar:16.7.6",
     "org.eclipse.aether:aether-util:jar:1.1.0",
     "org.iq80.leveldb:leveldb:jar:0.9",
     "org.iq80.leveldb:leveldb:jar:0.7",
@@ -159,7 +159,9 @@ object RunGenerateMaven {
     "org.apache.camel:camel-core:jar:2.18.0",
     "org.slf4j:jcl-over-slf4j:jar:1.7.21",
     "org.docx4j:docx4j:jar:3.3.1",
-    "org.docx4j:docx4j-ImportXHTML:jar:3.3.1"
+    "org.docx4j:docx4j-ImportXHTML:jar:3.3.1",
+    "javax.ejb:ejb-api:jar:3.0",
+    "org.springframework:spring-jdbc:jar:4.1.9.RELEASE"
 
   //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
