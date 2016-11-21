@@ -42,7 +42,7 @@ object MvnmodModules {
   }
   object Builder extends ScalaModule(
     "builder",
-    Common.R2
+    Common.Snapshot
   ) {
     val Snapshot = snapshot
 

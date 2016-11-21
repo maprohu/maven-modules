@@ -158,6 +158,22 @@ object Module {
 
   val versionScheme = new GenericVersionScheme
 
+  implicit def hasMavenCoordinates2Module(clk: HasMavenCoordinates) : Module = {
+    Module(
+      ModuleVersion(
+        ModuleId(
+          groupId = clk.groupId,
+          artifactId = clk.artifactId,
+          classifier = clk.classifier
+        ),
+        versionScheme.parseVersion(clk.version)
+      ),
+      Seq.empty,
+      repos = Seq.empty,
+      source = None
+    )
+  }
+
   implicit def central2Module(clk: MavenCentralModule) : Module = {
     Module(
       ModuleVersion(
@@ -333,6 +349,7 @@ object Module {
             <version>1.0.0</version>
             <packaging>pom</packaging>
 
+
             <build>
               <plugins>
                 <plugin>
@@ -406,6 +423,9 @@ object Module {
         <artifactId>{module.container.artifactId}-{module.name}</artifactId>
         <version>{module.version}</version>
         <packaging>jar</packaging>
+        <organization>
+          <name>{module.container.root.groupId}</name>
+        </organization>
         <build>
           <finalName>product</finalName>
           <plugins>

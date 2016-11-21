@@ -36,7 +36,7 @@ object Delivery {
   def run(
     name: String,
     version: String,
-    what: Seq[NamedModule],
+    what: Seq[Module],
     roots: Seq[(RootModuleContainer, File)],
     where: File,
     firstModules: Seq[String],
@@ -55,7 +55,6 @@ object Delivery {
       what
         .flatMap({ nm =>
           val m = nm
-            .asModule
 
           (m.depsTransitive :+ m)
             .flatMap(_.source)

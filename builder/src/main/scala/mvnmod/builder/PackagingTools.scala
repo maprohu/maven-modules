@@ -90,7 +90,7 @@ object PackagingTools {
 
 
   def listSnapshots(
-    modules: Seq[NamedModule]
+    modules: Seq[Module]
   ) = {
 
     println(
