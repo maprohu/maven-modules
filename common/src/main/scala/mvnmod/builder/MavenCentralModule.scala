@@ -131,3 +131,17 @@ class GeotoolsMoule(
   dependencies:_*
 )
 
+object JCenterMoule {
+  def Repos = Seq(
+    Repo("jcenter", "https://jcenter.bintray.com")
+  )
+}
+class JCenterMoule(
+  canonical: String,
+  dependencies: MavenCentralModule*
+) extends MavenCentralModule(
+  canonical,
+  JCenterMoule.Repos,
+  dependencies:_*
+)
+
