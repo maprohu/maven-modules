@@ -165,7 +165,8 @@ object RunGenerateMaven {
     "javax.ejb:ejb-api:jar:3.0",
     "org.springframework:spring-jdbc:jar:4.1.9.RELEASE",
     "org.littleshoot:littleproxy:jar:1.1.0",
-    "com.jssrc:jssrc:jar:1.0.1"
+    "com.jssrc:jssrc:jar:1.0.1",
+    "org.mapdb:mapdb:jar:3.0.2"
 
   //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
