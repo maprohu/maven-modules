@@ -53,6 +53,7 @@ object RunMvnmodReleaseInstall {
   def main(args: Array[String]): Unit = {
     RunMvnmodRelease
       .Releases
+      .take(5)
       .reverse
       .foreach { r =>
         println(r.getClass.getName)

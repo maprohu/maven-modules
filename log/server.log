@@ -5287,3 +5287,1058 @@
 2016-11-23 20:41:28,198 [Thread-5] INFO  marytts.PronunciationModel Module shut down.
 2016-11-23 20:41:28,198 [Thread-5] INFO  marytts.OpenNLPPosTagger Module shut down.
 2016-11-23 20:41:28,199 [Thread-5] INFO  marytts.main Shutdown complete.
+2016-11-24 17:49:00,264 [Thread-1] INFO  marytts.main Mary starting up...
+2016-11-24 17:49:00,268 [Thread-1] INFO  marytts.main Specification version 5.2
+2016-11-24 17:49:00,268 [Thread-1] INFO  marytts.main Implementation version unknown
+2016-11-24 17:49:00,268 [Thread-1] INFO  marytts.main Running on a Java 1.8.0_111 implementation by Oracle Corporation, on a Linux platform (amd64, 4.8.0-27-generic)
+2016-11-24 17:49:00,382 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.Synthesis'
+2016-11-24 17:49:00,385 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TextToMaryXML'
+2016-11-24 17:49:00,386 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SableParser'
+2016-11-24 17:49:00,387 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SSMLParser'
+2016-11-24 17:49:00,387 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.APMLParser'
+2016-11-24 17:49:00,387 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.EmotionmlParser'
+2016-11-24 17:49:00,388 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JTokeniser'
+2016-11-24 17:49:00,388 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.DummyTokens2Words'
+2016-11-24 17:49:00,389 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.ProsodyGeneric'
+2016-11-24 17:49:00,391 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PronunciationModel'
+2016-11-24 17:49:00,392 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TargetFeatureLister'
+2016-11-24 17:49:00,392 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HalfPhoneTargetFeatureLister'
+2016-11-24 17:49:00,393 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.AcousticModeller'
+2016-11-24 17:49:00,393 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedAcoustparamsExtractor'
+2016-11-24 17:49:00,394 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedDurationsExtractor'
+2016-11-24 17:49:00,394 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HTSEngine'
+2016-11-24 17:49:00,395 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PraatTextGridGenerator'
+2016-11-24 17:49:00,396 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.JTokeniser'
+2016-11-24 17:49:00,396 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Preprocess'
+2016-11-24 17:49:00,515 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_US.)'
+2016-11-24 17:49:00,516 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_US.txt' for locale 'en_US' does not exist. Ignoring.
+2016-11-24 17:49:00,565 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_GB.)'
+2016-11-24 17:49:00,565 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_GB.txt' for locale 'en_GB' does not exist. Ignoring.
+2016-11-24 17:49:00,597 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Prosody'
+2016-11-24 17:49:00,598 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SimplePhoneme2AP(en_US)'
+2016-11-24 17:49:00,599 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.PronunciationModel'
+2016-11-24 17:49:00,599 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.OpenNLPPosTagger(en,en.pos)'
+2016-11-24 17:49:00,603 [Thread-1] INFO  marytts.UnitSelectionSynthesizer started.
+2016-11-24 17:49:00,604 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->TARGETFEATURES, locale null).
+2016-11-24 17:49:00,604 [Thread-1] INFO  marytts.HTSEngine Module started (TARGETFEATURES->AUDIO, locale null).
+2016-11-24 17:49:00,621 [Thread-1] INFO  marytts.HMMData Loading Tree Set in CARTs:
+2016-11-24 17:49:00,674 [Thread-1] INFO  marytts.HMMData Loading GV Model Set:
+2016-11-24 17:49:00,767 [Thread-1] INFO  marytts.Voice Registering voice `cmu-slt-hsmm': female, locale en_US
+2016-11-24 17:49:00,767 [Thread-1] INFO  marytts.Voice New default voice for locale en_US: cmu-slt-hsmm (desire 0)
+2016-11-24 17:49:00,767 [Thread-1] INFO  marytts.HMMSynthesizer started.
+2016-11-24 17:49:00,767 [Thread-1] INFO  marytts.Synthesis Module started (ACOUSTPARAMS->AUDIO, locale null).
+2016-11-24 17:49:00,768 [Thread-1] INFO  marytts.HMMSynthesizer Starting power-on self test.
+2016-11-24 17:49:00,785 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 17:49:00,786 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=7  Total number of states numState=35
+2016-11-24 17:49:00,786 [Thread-1] INFO  marytts.HTSEngine Total number of frames=147  Number of voiced frames=89
+2016-11-24 17:49:00,790 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 17:49:00,790 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 17:49:00,792 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=23
+2016-11-24 17:49:00,796 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=54
+2016-11-24 17:49:00,798 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=38
+2016-11-24 17:49:00,799 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=20
+2016-11-24 17:49:00,800 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=13
+2016-11-24 17:49:00,800 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=21
+2016-11-24 17:49:00,801 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=7
+2016-11-24 17:49:00,801 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=4
+2016-11-24 17:49:00,802 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=11
+2016-11-24 17:49:00,803 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=19
+2016-11-24 17:49:00,803 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=16
+2016-11-24 17:49:00,803 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=9
+2016-11-24 17:49:00,804 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=2
+2016-11-24 17:49:00,804 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=13
+2016-11-24 17:49:00,804 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=12
+2016-11-24 17:49:00,804 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=14
+2016-11-24 17:49:00,805 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=15
+2016-11-24 17:49:00,805 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=14
+2016-11-24 17:49:00,805 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=19
+2016-11-24 17:49:00,806 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=12
+2016-11-24 17:49:00,806 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=17
+2016-11-24 17:49:00,806 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=23
+2016-11-24 17:49:00,807 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=12
+2016-11-24 17:49:00,807 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=18
+2016-11-24 17:49:00,807 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=12
+2016-11-24 17:49:00,808 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=11
+2016-11-24 17:49:00,808 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 17:49:00,808 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=9
+2016-11-24 17:49:00,808 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=13
+2016-11-24 17:49:00,809 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=8
+2016-11-24 17:49:00,809 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=11
+2016-11-24 17:49:00,809 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=12
+2016-11-24 17:49:00,809 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=7
+2016-11-24 17:49:00,810 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=8
+2016-11-24 17:49:00,810 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=12
+2016-11-24 17:49:00,810 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 17:49:00,811 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 17:49:00,811 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=16
+2016-11-24 17:49:00,811 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=2
+2016-11-24 17:49:00,812 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=2
+2016-11-24 17:49:00,812 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=8
+2016-11-24 17:49:00,812 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=26
+2016-11-24 17:49:00,818 [Thread-1] INFO  marytts.HMMSynthesizer Power-on self test complete.
+2016-11-24 17:49:00,818 [Thread-1] INFO  marytts.TextToMaryXML Module started (TEXT->RAWMARYXML, locale null).
+2016-11-24 17:49:00,819 [Thread-1] INFO  marytts.TextToMaryXML Starting power-on self test.
+2016-11-24 17:49:00,819 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 17:49:00,819 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 17:49:00,819 [Thread-1] INFO  marytts.TextToMaryXML Power-on self test complete.
+2016-11-24 17:49:00,979 [Thread-1] INFO  marytts.SableParser Module started (SABLE->RAWMARYXML, locale null).
+2016-11-24 17:49:00,979 [Thread-1] INFO  marytts.SableParser Starting power-on self test.
+2016-11-24 17:49:00,979 [Thread-1] INFO  marytts.SableParser Power-on self test complete.
+2016-11-24 17:49:01,036 [Thread-1] INFO  marytts.SSMLParser Module started (SSML->RAWMARYXML, locale null).
+2016-11-24 17:49:01,036 [Thread-1] INFO  marytts.SSMLParser Starting power-on self test.
+2016-11-24 17:49:01,036 [Thread-1] INFO  marytts.SSMLParser Power-on self test complete.
+2016-11-24 17:49:01,081 [Thread-1] INFO  marytts.APMLParser Module started (APML->RAWMARYXML, locale null).
+2016-11-24 17:49:01,081 [Thread-1] INFO  marytts.APMLParser Starting power-on self test.
+2016-11-24 17:49:01,081 [Thread-1] INFO  marytts.APMLParser Power-on self test complete.
+2016-11-24 17:49:01,108 [Thread-1] INFO  marytts.EmotionmlParser Module started (EMOTIONML->RAWMARYXML, locale null).
+2016-11-24 17:49:01,108 [Thread-1] INFO  marytts.EmotionmlParser Starting power-on self test.
+2016-11-24 17:49:01,109 [Thread-1] INFO  marytts.EmotionmlParser Power-on self test complete.
+2016-11-24 17:49:01,109 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale null).
+2016-11-24 17:49:01,139 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 17:49:01,140 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 17:49:01,140 [Thread-1] INFO  marytts.DummyTokens2Words Module started (TOKENS->WORDS, locale null).
+2016-11-24 17:49:01,140 [Thread-1] INFO  marytts.DummyTokens2Words Starting power-on self test.
+2016-11-24 17:49:01,140 [Thread-1] INFO  marytts.DummyTokens2Words Power-on self test complete.
+2016-11-24 17:49:01,145 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale null).
+2016-11-24 17:49:01,145 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 17:49:01,145 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 17:49:01,145 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale null).
+2016-11-24 17:49:01,145 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->HALFPHONE_TARGETFEATURES, locale null).
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.AcousticModeller Module started (ALLOPHONES->ACOUSTPARAMS, locale null).
+2016-11-24 17:49:01,146 [Thread-1] INFO  marytts.AcousticModeller Starting power-on self test.
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.AcousticModeller Power-on self test complete.
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.Realised acoustparams extractor Module started (AUDIO->REALISED_ACOUSTPARAMS, locale null).
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.Realised acoustparams extractor Starting power-on self test.
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.Realised acoustparams extractor Power-on self test complete.
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.Realised durations extractor Module started (AUDIO->REALISED_DURATIONS, locale null).
+2016-11-24 17:49:01,147 [Thread-1] INFO  marytts.Realised durations extractor Starting power-on self test.
+2016-11-24 17:49:01,148 [Thread-1] INFO  marytts.Realised durations extractor Power-on self test complete.
+2016-11-24 17:49:01,148 [Thread-1] INFO  marytts.Praat TextGrid generator Module started (REALISED_ACOUSTPARAMS->PRAAT_TEXTGRID, locale null).
+2016-11-24 17:49:01,148 [Thread-1] INFO  marytts.Praat TextGrid generator Starting power-on self test.
+2016-11-24 17:49:01,148 [Thread-1] INFO  marytts.Praat TextGrid generator Power-on self test complete.
+2016-11-24 17:49:01,148 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale en).
+2016-11-24 17:49:01,163 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 17:49:01,163 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 17:49:01,164 [Thread-1] INFO  marytts.Preprocess Module started (TOKENS->WORDS, locale en).
+2016-11-24 17:49:01,164 [Thread-1] INFO  marytts.Preprocess Starting power-on self test.
+2016-11-24 17:49:01,164 [Thread-1] INFO  marytts.Preprocess Power-on self test complete.
+2016-11-24 17:49:01,164 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_US).
+2016-11-24 17:49:01,166 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 17:49:01,166 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 17:49:01,166 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_GB).
+2016-11-24 17:49:01,166 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 17:49:01,167 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 17:49:01,171 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale en).
+2016-11-24 17:49:01,171 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 17:49:01,171 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 17:49:01,172 [Thread-1] INFO  marytts.SimplePhoneme2AP Module started (SIMPLEPHONEMES->ACOUSTPARAMS, locale en_US).
+2016-11-24 17:49:01,172 [Thread-1] INFO  marytts.SimplePhoneme2AP Starting power-on self test.
+2016-11-24 17:49:01,173 [Thread-1] INFO  marytts.SimplePhoneme2AP Power-on self test complete.
+2016-11-24 17:49:01,173 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale en).
+2016-11-24 17:49:01,174 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 17:49:01,174 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 17:49:01,174 [Thread-1] INFO  marytts.OpenNLPPosTagger Module started (WORDS->PARTSOFSPEECH, locale en).
+2016-11-24 17:49:01,645 [Thread-1] INFO  marytts.OpenNLPPosTagger Starting power-on self test.
+2016-11-24 17:49:01,645 [Thread-1] INFO  marytts.OpenNLPPosTagger Power-on self test complete.
+2016-11-24 17:49:01,646 [Thread-1] INFO  marytts.main Startup complete.
+2016-11-24 17:49:01,649 [Thread-1] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 17:49:01,649 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 17:49:01,649 [Thread-1] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 17:49:01,649 [Thread-1] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 17:49:01,650 [Thread-1] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 17:49:01,652 [Thread-1] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 17:49:01,653 [Thread-1] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 17:49:01,656 [Thread-1] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 17:49:01,662 [Thread-1] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 17:49:01,664 [Thread-1] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 17:49:01,664 [Thread-1] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 17:49:01,670 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 17:49:01,670 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 154
+2016-11-24 17:49:01,671 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=4
+2016-11-24 17:49:01,673 [Thread-1] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 17:49:01,727 [Thread-1] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 17:49:01,728 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 17:49:01,729 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=12  Total number of states numState=60
+2016-11-24 17:49:01,729 [Thread-1] INFO  marytts.HTSEngine Total number of frames=291  Number of voiced frames=154
+2016-11-24 17:49:01,730 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 17:49:01,730 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 211
+2016-11-24 17:49:01,737 [Thread-1] INFO  marytts.PStream    optimization stopped by reaching max number of iterations (no global variance applied)
+2016-11-24 17:49:01,738 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=101
+2016-11-24 17:49:01,740 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=27
+2016-11-24 17:49:01,742 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=19
+2016-11-24 17:49:01,743 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=17
+2016-11-24 17:49:01,744 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=6
+2016-11-24 17:49:01,744 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=4
+2016-11-24 17:49:01,745 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=2
+2016-11-24 17:49:01,745 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=2
+2016-11-24 17:49:01,746 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=7
+2016-11-24 17:49:01,749 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=18
+2016-11-24 17:49:01,750 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=13
+2016-11-24 17:49:01,751 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=16
+2016-11-24 17:49:01,753 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=19
+2016-11-24 17:49:01,754 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=23
+2016-11-24 17:49:01,755 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=15
+2016-11-24 17:49:01,757 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=17
+2016-11-24 17:49:01,757 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=13
+2016-11-24 17:49:01,758 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=11
+2016-11-24 17:49:01,759 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=20
+2016-11-24 17:49:01,760 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=9
+2016-11-24 17:49:01,760 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=3
+2016-11-24 17:49:01,761 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=14
+2016-11-24 17:49:01,762 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=13
+2016-11-24 17:49:01,762 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=2
+2016-11-24 17:49:01,763 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=10
+2016-11-24 17:49:01,764 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=14
+2016-11-24 17:49:01,765 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 17:49:01,765 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=5
+2016-11-24 17:49:01,766 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=8
+2016-11-24 17:49:01,767 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=14
+2016-11-24 17:49:01,768 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=2
+2016-11-24 17:49:01,768 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=2
+2016-11-24 17:49:01,768 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=3
+2016-11-24 17:49:01,769 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=14
+2016-11-24 17:49:01,770 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=14
+2016-11-24 17:49:01,770 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 17:49:01,771 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 211
+2016-11-24 17:49:01,772 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=15
+2016-11-24 17:49:01,772 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=4
+2016-11-24 17:49:01,774 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=18
+2016-11-24 17:49:01,775 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=9
+2016-11-24 17:49:01,775 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 17:49:01,775 [Thread-1] INFO  marytts.R 1 Request processed in 126 ms.
+2016-11-24 17:49:01,775 [Thread-1] INFO  marytts.R 1    TextToMaryXML took 0 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    JTokeniser took 2 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    Preprocess took 1 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    OpenNLPPosTagger took 3 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    JPhonemiser took 6 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    Prosody took 2 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    PronunciationModel took 0 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    AcousticModeller took 9 ms
+2016-11-24 17:49:01,776 [Thread-1] INFO  marytts.R 1    Synthesis took 102 ms
+2016-11-24 17:49:11,956 [Thread-1] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 17:49:11,956 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 17:49:11,956 [Thread-1] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 17:49:11,956 [Thread-1] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 17:49:11,957 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 17:49:11,958 [Thread-1] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 17:49:11,959 [Thread-1] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 17:49:11,960 [Thread-1] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 17:49:11,960 [Thread-1] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 17:49:11,961 [Thread-1] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 17:49:11,961 [Thread-1] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 17:49:11,962 [Thread-1] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 17:49:11,966 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 17:49:11,966 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 93
+2016-11-24 17:49:11,966 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=12
+2016-11-24 17:49:11,967 [Thread-1] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 17:49:11,967 [Thread-1] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 17:49:11,967 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 17:49:11,968 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=10  Total number of states numState=50
+2016-11-24 17:49:11,968 [Thread-1] INFO  marytts.HTSEngine Total number of frames=209  Number of voiced frames=93
+2016-11-24 17:49:11,969 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 17:49:11,969 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 128
+2016-11-24 17:49:11,969 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=22
+2016-11-24 17:49:11,970 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=2
+2016-11-24 17:49:11,970 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=7
+2016-11-24 17:49:11,970 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=18
+2016-11-24 17:49:11,971 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 17:49:11,971 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=2
+2016-11-24 17:49:11,971 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=4
+2016-11-24 17:49:11,972 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=21
+2016-11-24 17:49:11,972 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=19
+2016-11-24 17:49:11,972 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=15
+2016-11-24 17:49:11,973 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=14
+2016-11-24 17:49:11,974 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=16
+2016-11-24 17:49:11,974 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=14
+2016-11-24 17:49:11,975 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=18
+2016-11-24 17:49:11,975 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=14
+2016-11-24 17:49:11,975 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=18
+2016-11-24 17:49:11,976 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=12
+2016-11-24 17:49:11,976 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=11
+2016-11-24 17:49:11,976 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=3
+2016-11-24 17:49:11,977 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=11
+2016-11-24 17:49:11,977 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=14
+2016-11-24 17:49:11,978 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=19
+2016-11-24 17:49:11,978 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=11
+2016-11-24 17:49:11,978 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=3
+2016-11-24 17:49:11,978 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=6
+2016-11-24 17:49:11,979 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=10
+2016-11-24 17:49:11,979 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 17:49:11,979 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=11
+2016-11-24 17:49:11,979 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=8
+2016-11-24 17:49:11,980 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=12
+2016-11-24 17:49:11,980 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=11
+2016-11-24 17:49:11,980 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=9
+2016-11-24 17:49:11,981 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=10
+2016-11-24 17:49:11,981 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=17
+2016-11-24 17:49:11,981 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=12
+2016-11-24 17:49:11,981 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 17:49:11,982 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 128
+2016-11-24 17:49:11,982 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=17
+2016-11-24 17:49:11,983 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=10
+2016-11-24 17:49:11,983 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=6
+2016-11-24 17:49:11,983 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=11
+2016-11-24 17:49:11,983 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1 Request processed in 28 ms.
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    TextToMaryXML took 1 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    JTokeniser took 1 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    Preprocess took 1 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    OpenNLPPosTagger took 0 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    JPhonemiser took 1 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    Prosody took 0 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    PronunciationModel took 1 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    AcousticModeller took 5 ms
+2016-11-24 17:49:11,984 [Thread-1] INFO  marytts.R 1    Synthesis took 17 ms
+2016-11-24 17:49:18,594 [Thread-6] INFO  marytts.main Shutting down modules...
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Synthesis Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.TextToMaryXML Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.SableParser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.SSMLParser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.APMLParser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.EmotionmlParser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.DummyTokens2Words Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Prosody Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.AcousticModeller Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Realised acoustparams extractor Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Realised durations extractor Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.HTSEngine Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Praat TextGrid generator Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Preprocess Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.Prosody Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.SimplePhoneme2AP Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 17:49:18,595 [Thread-6] INFO  marytts.OpenNLPPosTagger Module shut down.
+2016-11-24 17:49:18,596 [Thread-6] INFO  marytts.main Shutdown complete.
+2016-11-24 18:18:13,923 [Thread-1] INFO  marytts.main Mary starting up...
+2016-11-24 18:18:13,925 [Thread-1] INFO  marytts.main Specification version 5.2
+2016-11-24 18:18:13,925 [Thread-1] INFO  marytts.main Implementation version unknown
+2016-11-24 18:18:13,925 [Thread-1] INFO  marytts.main Running on a Java 1.8.0_111 implementation by Oracle Corporation, on a Linux platform (amd64, 4.8.0-27-generic)
+2016-11-24 18:18:14,026 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.Synthesis'
+2016-11-24 18:18:14,029 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TextToMaryXML'
+2016-11-24 18:18:14,029 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SableParser'
+2016-11-24 18:18:14,030 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SSMLParser'
+2016-11-24 18:18:14,030 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.APMLParser'
+2016-11-24 18:18:14,031 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.EmotionmlParser'
+2016-11-24 18:18:14,031 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JTokeniser'
+2016-11-24 18:18:14,032 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.DummyTokens2Words'
+2016-11-24 18:18:14,032 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.ProsodyGeneric'
+2016-11-24 18:18:14,034 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PronunciationModel'
+2016-11-24 18:18:14,035 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TargetFeatureLister'
+2016-11-24 18:18:14,036 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HalfPhoneTargetFeatureLister'
+2016-11-24 18:18:14,036 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.AcousticModeller'
+2016-11-24 18:18:14,037 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedAcoustparamsExtractor'
+2016-11-24 18:18:14,037 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedDurationsExtractor'
+2016-11-24 18:18:14,038 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HTSEngine'
+2016-11-24 18:18:14,039 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PraatTextGridGenerator'
+2016-11-24 18:18:14,039 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.JTokeniser'
+2016-11-24 18:18:14,040 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Preprocess'
+2016-11-24 18:18:14,160 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_US.)'
+2016-11-24 18:18:14,162 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_US.txt' for locale 'en_US' does not exist. Ignoring.
+2016-11-24 18:18:14,209 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_GB.)'
+2016-11-24 18:18:14,209 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_GB.txt' for locale 'en_GB' does not exist. Ignoring.
+2016-11-24 18:18:14,242 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Prosody'
+2016-11-24 18:18:14,242 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SimplePhoneme2AP(en_US)'
+2016-11-24 18:18:14,243 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.PronunciationModel'
+2016-11-24 18:18:14,244 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.OpenNLPPosTagger(en,en.pos)'
+2016-11-24 18:18:14,248 [Thread-1] INFO  marytts.UnitSelectionSynthesizer started.
+2016-11-24 18:18:14,249 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->TARGETFEATURES, locale null).
+2016-11-24 18:18:14,249 [Thread-1] INFO  marytts.HTSEngine Module started (TARGETFEATURES->AUDIO, locale null).
+2016-11-24 18:18:14,263 [Thread-1] INFO  marytts.HMMData Loading Tree Set in CARTs:
+2016-11-24 18:18:14,310 [Thread-1] INFO  marytts.HMMData Loading GV Model Set:
+2016-11-24 18:18:14,401 [Thread-1] INFO  marytts.Voice Registering voice `cmu-slt-hsmm': female, locale en_US
+2016-11-24 18:18:14,401 [Thread-1] INFO  marytts.Voice New default voice for locale en_US: cmu-slt-hsmm (desire 0)
+2016-11-24 18:18:14,401 [Thread-1] INFO  marytts.HMMSynthesizer started.
+2016-11-24 18:18:14,401 [Thread-1] INFO  marytts.Synthesis Module started (ACOUSTPARAMS->AUDIO, locale null).
+2016-11-24 18:18:14,401 [Thread-1] INFO  marytts.HMMSynthesizer Starting power-on self test.
+2016-11-24 18:18:14,419 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:18:14,421 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=7  Total number of states numState=35
+2016-11-24 18:18:14,421 [Thread-1] INFO  marytts.HTSEngine Total number of frames=147  Number of voiced frames=89
+2016-11-24 18:18:14,425 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:18:14,425 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 18:18:14,427 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=23
+2016-11-24 18:18:14,431 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=54
+2016-11-24 18:18:14,433 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=38
+2016-11-24 18:18:14,434 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=20
+2016-11-24 18:18:14,434 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=13
+2016-11-24 18:18:14,435 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=21
+2016-11-24 18:18:14,435 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=7
+2016-11-24 18:18:14,436 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=4
+2016-11-24 18:18:14,437 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=11
+2016-11-24 18:18:14,437 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=19
+2016-11-24 18:18:14,438 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=16
+2016-11-24 18:18:14,438 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=9
+2016-11-24 18:18:14,438 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=2
+2016-11-24 18:18:14,439 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=13
+2016-11-24 18:18:14,439 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=12
+2016-11-24 18:18:14,439 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=14
+2016-11-24 18:18:14,440 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=15
+2016-11-24 18:18:14,440 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=14
+2016-11-24 18:18:14,440 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=19
+2016-11-24 18:18:14,441 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=12
+2016-11-24 18:18:14,441 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=17
+2016-11-24 18:18:14,441 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=23
+2016-11-24 18:18:14,442 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=12
+2016-11-24 18:18:14,442 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=18
+2016-11-24 18:18:14,442 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=12
+2016-11-24 18:18:14,443 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=11
+2016-11-24 18:18:14,443 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 18:18:14,443 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=9
+2016-11-24 18:18:14,443 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=13
+2016-11-24 18:18:14,444 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=8
+2016-11-24 18:18:14,444 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=11
+2016-11-24 18:18:14,444 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=12
+2016-11-24 18:18:14,445 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=7
+2016-11-24 18:18:14,445 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=8
+2016-11-24 18:18:14,445 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=12
+2016-11-24 18:18:14,445 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:18:14,446 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 18:18:14,446 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=16
+2016-11-24 18:18:14,446 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=2
+2016-11-24 18:18:14,446 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=2
+2016-11-24 18:18:14,446 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=8
+2016-11-24 18:18:14,447 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=26
+2016-11-24 18:18:14,452 [Thread-1] INFO  marytts.HMMSynthesizer Power-on self test complete.
+2016-11-24 18:18:14,453 [Thread-1] INFO  marytts.TextToMaryXML Module started (TEXT->RAWMARYXML, locale null).
+2016-11-24 18:18:14,453 [Thread-1] INFO  marytts.TextToMaryXML Starting power-on self test.
+2016-11-24 18:18:14,453 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 18:18:14,454 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 18:18:14,454 [Thread-1] INFO  marytts.TextToMaryXML Power-on self test complete.
+2016-11-24 18:18:14,583 [Thread-1] INFO  marytts.SableParser Module started (SABLE->RAWMARYXML, locale null).
+2016-11-24 18:18:14,583 [Thread-1] INFO  marytts.SableParser Starting power-on self test.
+2016-11-24 18:18:14,583 [Thread-1] INFO  marytts.SableParser Power-on self test complete.
+2016-11-24 18:18:14,623 [Thread-1] INFO  marytts.SSMLParser Module started (SSML->RAWMARYXML, locale null).
+2016-11-24 18:18:14,623 [Thread-1] INFO  marytts.SSMLParser Starting power-on self test.
+2016-11-24 18:18:14,624 [Thread-1] INFO  marytts.SSMLParser Power-on self test complete.
+2016-11-24 18:18:14,657 [Thread-1] INFO  marytts.APMLParser Module started (APML->RAWMARYXML, locale null).
+2016-11-24 18:18:14,657 [Thread-1] INFO  marytts.APMLParser Starting power-on self test.
+2016-11-24 18:18:14,658 [Thread-1] INFO  marytts.APMLParser Power-on self test complete.
+2016-11-24 18:18:14,679 [Thread-1] INFO  marytts.EmotionmlParser Module started (EMOTIONML->RAWMARYXML, locale null).
+2016-11-24 18:18:14,679 [Thread-1] INFO  marytts.EmotionmlParser Starting power-on self test.
+2016-11-24 18:18:14,679 [Thread-1] INFO  marytts.EmotionmlParser Power-on self test complete.
+2016-11-24 18:18:14,679 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale null).
+2016-11-24 18:18:14,704 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 18:18:14,704 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 18:18:14,704 [Thread-1] INFO  marytts.DummyTokens2Words Module started (TOKENS->WORDS, locale null).
+2016-11-24 18:18:14,704 [Thread-1] INFO  marytts.DummyTokens2Words Starting power-on self test.
+2016-11-24 18:18:14,704 [Thread-1] INFO  marytts.DummyTokens2Words Power-on self test complete.
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale null).
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale null).
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 18:18:14,708 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->HALFPHONE_TARGETFEATURES, locale null).
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.AcousticModeller Module started (ALLOPHONES->ACOUSTPARAMS, locale null).
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.AcousticModeller Starting power-on self test.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.AcousticModeller Power-on self test complete.
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.Realised acoustparams extractor Module started (AUDIO->REALISED_ACOUSTPARAMS, locale null).
+2016-11-24 18:18:14,709 [Thread-1] INFO  marytts.Realised acoustparams extractor Starting power-on self test.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Realised acoustparams extractor Power-on self test complete.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Realised durations extractor Module started (AUDIO->REALISED_DURATIONS, locale null).
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Realised durations extractor Starting power-on self test.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Realised durations extractor Power-on self test complete.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Praat TextGrid generator Module started (REALISED_ACOUSTPARAMS->PRAAT_TEXTGRID, locale null).
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Praat TextGrid generator Starting power-on self test.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.Praat TextGrid generator Power-on self test complete.
+2016-11-24 18:18:14,710 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale en).
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.Preprocess Module started (TOKENS->WORDS, locale en).
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.Preprocess Starting power-on self test.
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.Preprocess Power-on self test complete.
+2016-11-24 18:18:14,722 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_US).
+2016-11-24 18:18:14,724 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 18:18:14,724 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 18:18:14,724 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_GB).
+2016-11-24 18:18:14,724 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 18:18:14,725 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 18:18:14,728 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale en).
+2016-11-24 18:18:14,728 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 18:18:14,728 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 18:18:14,729 [Thread-1] INFO  marytts.SimplePhoneme2AP Module started (SIMPLEPHONEMES->ACOUSTPARAMS, locale en_US).
+2016-11-24 18:18:14,729 [Thread-1] INFO  marytts.SimplePhoneme2AP Starting power-on self test.
+2016-11-24 18:18:14,730 [Thread-1] INFO  marytts.SimplePhoneme2AP Power-on self test complete.
+2016-11-24 18:18:14,730 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale en).
+2016-11-24 18:18:14,730 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 18:18:14,731 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 18:18:14,731 [Thread-1] INFO  marytts.OpenNLPPosTagger Module started (WORDS->PARTSOFSPEECH, locale en).
+2016-11-24 18:18:15,229 [Thread-1] INFO  marytts.OpenNLPPosTagger Starting power-on self test.
+2016-11-24 18:18:15,230 [Thread-1] INFO  marytts.OpenNLPPosTagger Power-on self test complete.
+2016-11-24 18:18:15,231 [Thread-1] INFO  marytts.main Startup complete.
+2016-11-24 18:18:15,234 [Thread-1] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 18:18:15,234 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:15,234 [Thread-1] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 18:18:15,234 [Thread-1] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 18:18:15,235 [Thread-1] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 18:18:15,237 [Thread-1] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 18:18:15,239 [Thread-1] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 18:18:15,241 [Thread-1] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 18:18:15,248 [Thread-1] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 18:18:15,249 [Thread-1] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 18:18:15,250 [Thread-1] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 18:18:15,255 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 18:18:15,255 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 154
+2016-11-24 18:18:15,256 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=4
+2016-11-24 18:18:15,258 [Thread-1] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 18:18:15,279 [Thread-1] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 18:18:15,279 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:18:15,280 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=12  Total number of states numState=60
+2016-11-24 18:18:15,280 [Thread-1] INFO  marytts.HTSEngine Total number of frames=291  Number of voiced frames=154
+2016-11-24 18:18:15,281 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:18:15,281 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 211
+2016-11-24 18:18:15,284 [Thread-1] INFO  marytts.PStream    optimization stopped by reaching max number of iterations (no global variance applied)
+2016-11-24 18:18:15,284 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=101
+2016-11-24 18:18:15,286 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=27
+2016-11-24 18:18:15,286 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=19
+2016-11-24 18:18:15,287 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=17
+2016-11-24 18:18:15,288 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=6
+2016-11-24 18:18:15,288 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=4
+2016-11-24 18:18:15,289 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=2
+2016-11-24 18:18:15,289 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=2
+2016-11-24 18:18:15,290 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=7
+2016-11-24 18:18:15,292 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=18
+2016-11-24 18:18:15,292 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=13
+2016-11-24 18:18:15,293 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=16
+2016-11-24 18:18:15,294 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=19
+2016-11-24 18:18:15,295 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=23
+2016-11-24 18:18:15,296 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=15
+2016-11-24 18:18:15,297 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=17
+2016-11-24 18:18:15,297 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=13
+2016-11-24 18:18:15,298 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=11
+2016-11-24 18:18:15,299 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=20
+2016-11-24 18:18:15,299 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=9
+2016-11-24 18:18:15,300 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=3
+2016-11-24 18:18:15,300 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=14
+2016-11-24 18:18:15,301 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=13
+2016-11-24 18:18:15,301 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=2
+2016-11-24 18:18:15,301 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=10
+2016-11-24 18:18:15,301 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=14
+2016-11-24 18:18:15,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 18:18:15,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=5
+2016-11-24 18:18:15,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=8
+2016-11-24 18:18:15,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=14
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=2
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=2
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=3
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=14
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=14
+2016-11-24 18:18:15,303 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:18:15,304 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 211
+2016-11-24 18:18:15,304 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=15
+2016-11-24 18:18:15,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=4
+2016-11-24 18:18:15,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=18
+2016-11-24 18:18:15,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=9
+2016-11-24 18:18:15,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1 Request processed in 72 ms.
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    TextToMaryXML took 0 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    JTokeniser took 2 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    Preprocess took 2 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    OpenNLPPosTagger took 2 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    JPhonemiser took 7 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    Prosody took 1 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    PronunciationModel took 1 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    AcousticModeller took 8 ms
+2016-11-24 18:18:15,306 [Thread-1] INFO  marytts.R 1    Synthesis took 48 ms
+2016-11-24 18:18:38,673 [pool-3-thread-1] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 18:18:38,673 [pool-3-thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:38,673 [pool-3-thread-1] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 18:18:38,673 [pool-3-thread-1] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 18:18:38,674 [pool-3-thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:38,674 [pool-3-thread-1] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 18:18:38,674 [pool-3-thread-1] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 18:18:38,674 [pool-3-thread-1] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 18:18:38,675 [pool-3-thread-1] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 18:18:38,676 [pool-3-thread-1] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 18:18:38,677 [pool-3-thread-1] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 18:18:38,678 [pool-3-thread-1] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 18:18:38,679 [pool-3-thread-1] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 18:18:38,679 [pool-3-thread-1] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 18:18:38,686 [pool-3-thread-1] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 18:18:38,686 [pool-3-thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 235
+2016-11-24 18:18:38,686 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=1
+2016-11-24 18:18:38,686 [pool-3-thread-1] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 18:18:38,686 [pool-3-thread-1] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 18:18:38,687 [pool-3-thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:18:38,688 [pool-3-thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=22  Total number of states numState=110
+2016-11-24 18:18:38,688 [pool-3-thread-1] INFO  marytts.HTSEngine Total number of frames=440  Number of voiced frames=235
+2016-11-24 18:18:38,689 [pool-3-thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:18:38,689 [pool-3-thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 360
+2016-11-24 18:18:38,690 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=46
+2016-11-24 18:18:38,690 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=24
+2016-11-24 18:18:38,691 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=2
+2016-11-24 18:18:38,691 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=22
+2016-11-24 18:18:38,692 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=5
+2016-11-24 18:18:38,692 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=2
+2016-11-24 18:18:38,692 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=17
+2016-11-24 18:18:38,693 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=20
+2016-11-24 18:18:38,693 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=22
+2016-11-24 18:18:38,694 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=17
+2016-11-24 18:18:38,694 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=20
+2016-11-24 18:18:38,695 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=20
+2016-11-24 18:18:38,695 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=18
+2016-11-24 18:18:38,696 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=20
+2016-11-24 18:18:38,696 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=17
+2016-11-24 18:18:38,697 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=18
+2016-11-24 18:18:38,697 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=20
+2016-11-24 18:18:38,697 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=25
+2016-11-24 18:18:38,698 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=19
+2016-11-24 18:18:38,698 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=10
+2016-11-24 18:18:38,699 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=17
+2016-11-24 18:18:38,699 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=3
+2016-11-24 18:18:38,699 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=3
+2016-11-24 18:18:38,699 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=14
+2016-11-24 18:18:38,700 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=12
+2016-11-24 18:18:38,700 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=4
+2016-11-24 18:18:38,700 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=6
+2016-11-24 18:18:38,701 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=13
+2016-11-24 18:18:38,701 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=16
+2016-11-24 18:18:38,701 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=3
+2016-11-24 18:18:38,701 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=3
+2016-11-24 18:18:38,702 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=13
+2016-11-24 18:18:38,702 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=3
+2016-11-24 18:18:38,702 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=8
+2016-11-24 18:18:38,703 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=13
+2016-11-24 18:18:38,703 [pool-3-thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:18:38,703 [pool-3-thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 360
+2016-11-24 18:18:38,703 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=5
+2016-11-24 18:18:38,704 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=14
+2016-11-24 18:18:38,704 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=18
+2016-11-24 18:18:38,704 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=6
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1 Request processed in 32 ms.
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    TextToMaryXML took 0 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    JTokeniser took 0 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    Preprocess took 1 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    OpenNLPPosTagger took 1 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    JPhonemiser took 1 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    Prosody took 1 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    PronunciationModel took 0 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    AcousticModeller took 7 ms
+2016-11-24 18:18:38,705 [pool-3-thread-1] INFO  marytts.R 1    Synthesis took 19 ms
+2016-11-24 18:18:41,283 [Thread-10] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 18:18:41,283 [Thread-10] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:41,283 [Thread-10] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 18:18:41,283 [Thread-10] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 18:18:41,285 [Thread-10] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 18:18:41,286 [Thread-10] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 18:18:41,286 [Thread-10] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 18:18:41,287 [Thread-10] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 18:18:41,287 [Thread-10] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 18:18:41,288 [Thread-10] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 18:18:41,288 [Thread-10] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 18:18:41,292 [Thread-10] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 18:18:41,292 [Thread-10] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 146
+2016-11-24 18:18:41,292 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=1
+2016-11-24 18:18:41,292 [Thread-10] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 18:18:41,292 [Thread-10] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 18:18:41,293 [Thread-10] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:18:41,293 [Thread-10] INFO  marytts.HTSEngine Number of models in sentence numModel=11  Total number of states numState=55
+2016-11-24 18:18:41,293 [Thread-10] INFO  marytts.HTSEngine Total number of frames=296  Number of voiced frames=146
+2016-11-24 18:18:41,294 [Thread-10] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:18:41,294 [Thread-10] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 216
+2016-11-24 18:18:41,295 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=57
+2016-11-24 18:18:41,295 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=27
+2016-11-24 18:18:41,295 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=2
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=18
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=13
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=2
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=2
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=2
+2016-11-24 18:18:41,296 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=2
+2016-11-24 18:18:41,297 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=18
+2016-11-24 18:18:41,297 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=15
+2016-11-24 18:18:41,297 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=16
+2016-11-24 18:18:41,298 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=18
+2016-11-24 18:18:41,298 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=25
+2016-11-24 18:18:41,298 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=15
+2016-11-24 18:18:41,298 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=18
+2016-11-24 18:18:41,299 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=19
+2016-11-24 18:18:41,299 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=13
+2016-11-24 18:18:41,299 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=17
+2016-11-24 18:18:41,300 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=14
+2016-11-24 18:18:41,300 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=3
+2016-11-24 18:18:41,300 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=17
+2016-11-24 18:18:41,300 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=13
+2016-11-24 18:18:41,300 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=3
+2016-11-24 18:18:41,301 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=10
+2016-11-24 18:18:41,301 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=11
+2016-11-24 18:18:41,301 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=12
+2016-11-24 18:18:41,301 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=5
+2016-11-24 18:18:41,301 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=8
+2016-11-24 18:18:41,302 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=14
+2016-11-24 18:18:41,302 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=2
+2016-11-24 18:18:41,302 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=3
+2016-11-24 18:18:41,302 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=3
+2016-11-24 18:18:41,302 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=10
+2016-11-24 18:18:41,303 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=14
+2016-11-24 18:18:41,303 [Thread-10] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:18:41,303 [Thread-10] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 216
+2016-11-24 18:18:41,304 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=22
+2016-11-24 18:18:41,304 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=10
+2016-11-24 18:18:41,304 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=4
+2016-11-24 18:18:41,304 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=16
+2016-11-24 18:18:41,304 [Thread-10] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1 Request processed in 22 ms.
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    TextToMaryXML took 0 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    JTokeniser took 1 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    Preprocess took 0 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    OpenNLPPosTagger took 1 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    JPhonemiser took 0 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    Prosody took 1 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    PronunciationModel took 0 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    AcousticModeller took 4 ms
+2016-11-24 18:18:41,305 [Thread-10] INFO  marytts.R 1    Synthesis took 13 ms
+2016-11-24 18:18:43,193 [pool-3-thread-1] INFO  marytts.main Shutting down modules...
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.Synthesis Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.TextToMaryXML Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.SableParser Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.SSMLParser Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.APMLParser Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.EmotionmlParser Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.DummyTokens2Words Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.Prosody Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.AcousticModeller Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.Realised acoustparams extractor Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.Realised durations extractor Module shut down.
+2016-11-24 18:18:43,194 [pool-3-thread-1] INFO  marytts.HTSEngine Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.Praat TextGrid generator Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.Preprocess Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.Prosody Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.SimplePhoneme2AP Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 18:18:43,195 [pool-3-thread-1] INFO  marytts.OpenNLPPosTagger Module shut down.
+2016-11-24 18:18:43,196 [pool-3-thread-1] INFO  marytts.main Shutdown complete.
+2016-11-24 18:26:20,019 [Thread-1] INFO  marytts.main Mary starting up...
+2016-11-24 18:26:20,022 [Thread-1] INFO  marytts.main Specification version 5.2
+2016-11-24 18:26:20,022 [Thread-1] INFO  marytts.main Implementation version unknown
+2016-11-24 18:26:20,022 [Thread-1] INFO  marytts.main Running on a Java 1.8.0_111 implementation by Oracle Corporation, on a Linux platform (amd64, 4.8.0-27-generic)
+2016-11-24 18:26:20,122 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.Synthesis'
+2016-11-24 18:26:20,126 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TextToMaryXML'
+2016-11-24 18:26:20,127 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SableParser'
+2016-11-24 18:26:20,127 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SSMLParser'
+2016-11-24 18:26:20,128 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.APMLParser'
+2016-11-24 18:26:20,128 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.EmotionmlParser'
+2016-11-24 18:26:20,129 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JTokeniser'
+2016-11-24 18:26:20,129 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.DummyTokens2Words'
+2016-11-24 18:26:20,130 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.ProsodyGeneric'
+2016-11-24 18:26:20,132 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PronunciationModel'
+2016-11-24 18:26:20,133 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.TargetFeatureLister'
+2016-11-24 18:26:20,133 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HalfPhoneTargetFeatureLister'
+2016-11-24 18:26:20,134 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.AcousticModeller'
+2016-11-24 18:26:20,135 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedAcoustparamsExtractor'
+2016-11-24 18:26:20,135 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.RealisedDurationsExtractor'
+2016-11-24 18:26:20,136 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.HTSEngine'
+2016-11-24 18:26:20,137 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.PraatTextGridGenerator'
+2016-11-24 18:26:20,138 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.JTokeniser'
+2016-11-24 18:26:20,138 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Preprocess'
+2016-11-24 18:26:20,269 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_US.)'
+2016-11-24 18:26:20,270 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_US.txt' for locale 'en_US' does not exist. Ignoring.
+2016-11-24 18:26:20,303 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.JPhonemiser(en_GB.)'
+2016-11-24 18:26:20,303 [Thread-1] INFO  marytts.JPhonemiser User dictionary './user-dictionaries/userdict-en_GB.txt' for locale 'en_GB' does not exist. Ignoring.
+2016-11-24 18:26:20,320 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.Prosody'
+2016-11-24 18:26:20,321 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.SimplePhoneme2AP(en_US)'
+2016-11-24 18:26:20,321 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.language.en.PronunciationModel'
+2016-11-24 18:26:20,322 [Thread-1] INFO  marytts.ModuleRegistry Now initiating mary module 'marytts.modules.OpenNLPPosTagger(en,en.pos)'
+2016-11-24 18:26:20,325 [Thread-1] INFO  marytts.UnitSelectionSynthesizer started.
+2016-11-24 18:26:20,327 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->TARGETFEATURES, locale null).
+2016-11-24 18:26:20,327 [Thread-1] INFO  marytts.HTSEngine Module started (TARGETFEATURES->AUDIO, locale null).
+2016-11-24 18:26:20,341 [Thread-1] INFO  marytts.HMMData Loading Tree Set in CARTs:
+2016-11-24 18:26:20,395 [Thread-1] INFO  marytts.HMMData Loading GV Model Set:
+2016-11-24 18:26:20,466 [Thread-1] INFO  marytts.Voice Registering voice `cmu-slt-hsmm': female, locale en_US
+2016-11-24 18:26:20,466 [Thread-1] INFO  marytts.Voice New default voice for locale en_US: cmu-slt-hsmm (desire 0)
+2016-11-24 18:26:20,466 [Thread-1] INFO  marytts.HMMSynthesizer started.
+2016-11-24 18:26:20,466 [Thread-1] INFO  marytts.Synthesis Module started (ACOUSTPARAMS->AUDIO, locale null).
+2016-11-24 18:26:20,467 [Thread-1] INFO  marytts.HMMSynthesizer Starting power-on self test.
+2016-11-24 18:26:20,483 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:26:20,485 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=7  Total number of states numState=35
+2016-11-24 18:26:20,485 [Thread-1] INFO  marytts.HTSEngine Total number of frames=147  Number of voiced frames=89
+2016-11-24 18:26:20,489 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:26:20,489 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 18:26:20,490 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=23
+2016-11-24 18:26:20,494 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=54
+2016-11-24 18:26:20,497 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=38
+2016-11-24 18:26:20,497 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=20
+2016-11-24 18:26:20,498 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=13
+2016-11-24 18:26:20,499 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=21
+2016-11-24 18:26:20,499 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=7
+2016-11-24 18:26:20,500 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=4
+2016-11-24 18:26:20,500 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=11
+2016-11-24 18:26:20,501 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=19
+2016-11-24 18:26:20,501 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=16
+2016-11-24 18:26:20,502 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=9
+2016-11-24 18:26:20,502 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=2
+2016-11-24 18:26:20,502 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=13
+2016-11-24 18:26:20,503 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=12
+2016-11-24 18:26:20,503 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=14
+2016-11-24 18:26:20,503 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=15
+2016-11-24 18:26:20,504 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=14
+2016-11-24 18:26:20,504 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=19
+2016-11-24 18:26:20,504 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=12
+2016-11-24 18:26:20,505 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=17
+2016-11-24 18:26:20,505 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=23
+2016-11-24 18:26:20,506 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=12
+2016-11-24 18:26:20,506 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=18
+2016-11-24 18:26:20,507 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=12
+2016-11-24 18:26:20,507 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=11
+2016-11-24 18:26:20,507 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 18:26:20,507 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=9
+2016-11-24 18:26:20,508 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=13
+2016-11-24 18:26:20,508 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=8
+2016-11-24 18:26:20,508 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=11
+2016-11-24 18:26:20,509 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=12
+2016-11-24 18:26:20,509 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=7
+2016-11-24 18:26:20,509 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=8
+2016-11-24 18:26:20,510 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=12
+2016-11-24 18:26:20,510 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:26:20,510 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 107
+2016-11-24 18:26:20,511 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=16
+2016-11-24 18:26:20,511 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=2
+2016-11-24 18:26:20,511 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=2
+2016-11-24 18:26:20,511 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=8
+2016-11-24 18:26:20,512 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=26
+2016-11-24 18:26:20,517 [Thread-1] INFO  marytts.HMMSynthesizer Power-on self test complete.
+2016-11-24 18:26:20,518 [Thread-1] INFO  marytts.TextToMaryXML Module started (TEXT->RAWMARYXML, locale null).
+2016-11-24 18:26:20,518 [Thread-1] INFO  marytts.TextToMaryXML Starting power-on self test.
+2016-11-24 18:26:20,518 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 18:26:20,518 [Thread-1] WARN  marytts.TextToMaryXML Locale is null, overriding with en_US
+2016-11-24 18:26:20,518 [Thread-1] INFO  marytts.TextToMaryXML Power-on self test complete.
+2016-11-24 18:26:20,635 [Thread-1] INFO  marytts.SableParser Module started (SABLE->RAWMARYXML, locale null).
+2016-11-24 18:26:20,635 [Thread-1] INFO  marytts.SableParser Starting power-on self test.
+2016-11-24 18:26:20,635 [Thread-1] INFO  marytts.SableParser Power-on self test complete.
+2016-11-24 18:26:20,676 [Thread-1] INFO  marytts.SSMLParser Module started (SSML->RAWMARYXML, locale null).
+2016-11-24 18:26:20,676 [Thread-1] INFO  marytts.SSMLParser Starting power-on self test.
+2016-11-24 18:26:20,676 [Thread-1] INFO  marytts.SSMLParser Power-on self test complete.
+2016-11-24 18:26:20,709 [Thread-1] INFO  marytts.APMLParser Module started (APML->RAWMARYXML, locale null).
+2016-11-24 18:26:20,709 [Thread-1] INFO  marytts.APMLParser Starting power-on self test.
+2016-11-24 18:26:20,710 [Thread-1] INFO  marytts.APMLParser Power-on self test complete.
+2016-11-24 18:26:20,731 [Thread-1] INFO  marytts.EmotionmlParser Module started (EMOTIONML->RAWMARYXML, locale null).
+2016-11-24 18:26:20,731 [Thread-1] INFO  marytts.EmotionmlParser Starting power-on self test.
+2016-11-24 18:26:20,731 [Thread-1] INFO  marytts.EmotionmlParser Power-on self test complete.
+2016-11-24 18:26:20,731 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale null).
+2016-11-24 18:26:20,757 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 18:26:20,757 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 18:26:20,757 [Thread-1] INFO  marytts.DummyTokens2Words Module started (TOKENS->WORDS, locale null).
+2016-11-24 18:26:20,757 [Thread-1] INFO  marytts.DummyTokens2Words Starting power-on self test.
+2016-11-24 18:26:20,758 [Thread-1] INFO  marytts.DummyTokens2Words Power-on self test complete.
+2016-11-24 18:26:20,762 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale null).
+2016-11-24 18:26:20,762 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 18:26:20,762 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 18:26:20,762 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale null).
+2016-11-24 18:26:20,762 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.TargetFeatureLister Module started (ACOUSTPARAMS->HALFPHONE_TARGETFEATURES, locale null).
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.TargetFeatureLister Starting power-on self test.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.TargetFeatureLister Power-on self test complete.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.AcousticModeller Module started (ALLOPHONES->ACOUSTPARAMS, locale null).
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.AcousticModeller Starting power-on self test.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.AcousticModeller Power-on self test complete.
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.Realised acoustparams extractor Module started (AUDIO->REALISED_ACOUSTPARAMS, locale null).
+2016-11-24 18:26:20,763 [Thread-1] INFO  marytts.Realised acoustparams extractor Starting power-on self test.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Realised acoustparams extractor Power-on self test complete.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Realised durations extractor Module started (AUDIO->REALISED_DURATIONS, locale null).
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Realised durations extractor Starting power-on self test.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Realised durations extractor Power-on self test complete.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Praat TextGrid generator Module started (REALISED_ACOUSTPARAMS->PRAAT_TEXTGRID, locale null).
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Praat TextGrid generator Starting power-on self test.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.Praat TextGrid generator Power-on self test complete.
+2016-11-24 18:26:20,764 [Thread-1] INFO  marytts.JTokeniser Module started (RAWMARYXML->TOKENS, locale en).
+2016-11-24 18:26:20,777 [Thread-1] INFO  marytts.JTokeniser Starting power-on self test.
+2016-11-24 18:26:20,777 [Thread-1] INFO  marytts.JTokeniser Power-on self test complete.
+2016-11-24 18:26:20,777 [Thread-1] INFO  marytts.Preprocess Module started (TOKENS->WORDS, locale en).
+2016-11-24 18:26:20,777 [Thread-1] INFO  marytts.Preprocess Starting power-on self test.
+2016-11-24 18:26:20,778 [Thread-1] INFO  marytts.Preprocess Power-on self test complete.
+2016-11-24 18:26:20,778 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_US).
+2016-11-24 18:26:20,779 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 18:26:20,779 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 18:26:20,779 [Thread-1] INFO  marytts.JPhonemiser Module started (PARTSOFSPEECH->PHONEMES, locale en_GB).
+2016-11-24 18:26:20,780 [Thread-1] INFO  marytts.JPhonemiser Starting power-on self test.
+2016-11-24 18:26:20,780 [Thread-1] INFO  marytts.JPhonemiser Power-on self test complete.
+2016-11-24 18:26:20,783 [Thread-1] INFO  marytts.Prosody Module started (PHONEMES->INTONATION, locale en).
+2016-11-24 18:26:20,783 [Thread-1] INFO  marytts.Prosody Starting power-on self test.
+2016-11-24 18:26:20,784 [Thread-1] INFO  marytts.Prosody Power-on self test complete.
+2016-11-24 18:26:20,784 [Thread-1] INFO  marytts.SimplePhoneme2AP Module started (SIMPLEPHONEMES->ACOUSTPARAMS, locale en_US).
+2016-11-24 18:26:20,784 [Thread-1] INFO  marytts.SimplePhoneme2AP Starting power-on self test.
+2016-11-24 18:26:20,786 [Thread-1] INFO  marytts.SimplePhoneme2AP Power-on self test complete.
+2016-11-24 18:26:20,786 [Thread-1] INFO  marytts.PronunciationModel Module started (INTONATION->ALLOPHONES, locale en).
+2016-11-24 18:26:20,786 [Thread-1] INFO  marytts.PronunciationModel Starting power-on self test.
+2016-11-24 18:26:20,786 [Thread-1] INFO  marytts.PronunciationModel Power-on self test complete.
+2016-11-24 18:26:20,786 [Thread-1] INFO  marytts.OpenNLPPosTagger Module started (WORDS->PARTSOFSPEECH, locale en).
+2016-11-24 18:26:21,262 [Thread-1] INFO  marytts.OpenNLPPosTagger Starting power-on self test.
+2016-11-24 18:26:21,262 [Thread-1] INFO  marytts.OpenNLPPosTagger Power-on self test complete.
+2016-11-24 18:26:21,263 [Thread-1] INFO  marytts.main Startup complete.
+2016-11-24 18:26:21,266 [Thread-1] INFO  marytts.R 1 New request (input type "TEXT", output type "AUDIO", voice "cmu-slt-hsmm", audio "WAVE")
+2016-11-24 18:26:21,266 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:26:21,266 [Thread-1] INFO  marytts.R 1 - TextToMaryXML (marytts.modules.TextToMaryXML)
+2016-11-24 18:26:21,266 [Thread-1] INFO  marytts.R 1 Next module: TextToMaryXML
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 Handling request using the following modules:
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - JTokeniser (marytts.language.en.JTokeniser)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - Preprocess (marytts.language.en.Preprocess)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - OpenNLPPosTagger (marytts.modules.OpenNLPPosTagger)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - JPhonemiser (marytts.modules.JPhonemiser)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - Prosody (marytts.language.en.Prosody)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - PronunciationModel (marytts.language.en.PronunciationModel)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - AcousticModeller (marytts.modules.AcousticModeller)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 - Synthesis (marytts.modules.Synthesis)
+2016-11-24 18:26:21,267 [Thread-1] INFO  marytts.R 1 Next module: JTokeniser
+2016-11-24 18:26:21,269 [Thread-1] INFO  marytts.R 1 Next module: Preprocess
+2016-11-24 18:26:21,270 [Thread-1] INFO  marytts.R 1 Next module: OpenNLPPosTagger
+2016-11-24 18:26:21,272 [Thread-1] INFO  marytts.R 1 Next module: JPhonemiser
+2016-11-24 18:26:21,273 [Thread-1] INFO  marytts.R 1 Next module: Prosody
+2016-11-24 18:26:21,274 [Thread-1] INFO  marytts.R 1 Next module: PronunciationModel
+2016-11-24 18:26:21,274 [Thread-1] INFO  marytts.R 1 Next module: AcousticModeller
+2016-11-24 18:26:21,278 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for LF0: 
+2016-11-24 18:26:21,278 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 88
+2016-11-24 18:26:21,278 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=5
+2016-11-24 18:26:21,280 [Thread-1] INFO  marytts.R 1 Next module: Synthesis
+2016-11-24 18:26:21,300 [Thread-1] INFO  marytts.HMMSynthesizer Synthesizing one sentence.
+2016-11-24 18:26:21,300 [Thread-1] INFO  marytts.HTSEngine Using prosody from acoustparams.
+2016-11-24 18:26:21,300 [Thread-1] INFO  marytts.HTSEngine Number of models in sentence numModel=8  Total number of states numState=40
+2016-11-24 18:26:21,301 [Thread-1] INFO  marytts.HTSEngine Total number of frames=222  Number of voiced frames=88
+2016-11-24 18:26:21,301 [Thread-1] INFO  marytts.ParameterGeneration Parameter generation for MGC: 
+2016-11-24 18:26:21,301 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 141
+2016-11-24 18:26:21,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=35
+2016-11-24 18:26:21,302 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=2
+2016-11-24 18:26:21,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=5
+2016-11-24 18:26:21,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=2
+2016-11-24 18:26:21,303 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=2
+2016-11-24 18:26:21,304 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (5)  number of iterations=19
+2016-11-24 18:26:21,304 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (6)  number of iterations=2
+2016-11-24 18:26:21,304 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (7)  number of iterations=2
+2016-11-24 18:26:21,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (8)  number of iterations=15
+2016-11-24 18:26:21,305 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (9)  number of iterations=19
+2016-11-24 18:26:21,306 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (10)  number of iterations=14
+2016-11-24 18:26:21,306 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (11)  number of iterations=13
+2016-11-24 18:26:21,307 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (12)  number of iterations=3
+2016-11-24 18:26:21,307 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (13)  number of iterations=13
+2016-11-24 18:26:21,308 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (14)  number of iterations=19
+2016-11-24 18:26:21,308 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (15)  number of iterations=16
+2016-11-24 18:26:21,309 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (16)  number of iterations=15
+2016-11-24 18:26:21,309 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (17)  number of iterations=18
+2016-11-24 18:26:21,310 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (18)  number of iterations=19
+2016-11-24 18:26:21,311 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (19)  number of iterations=12
+2016-11-24 18:26:21,311 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (20)  number of iterations=15
+2016-11-24 18:26:21,312 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (21)  number of iterations=10
+2016-11-24 18:26:21,312 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (22)  number of iterations=15
+2016-11-24 18:26:21,313 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (23)  number of iterations=14
+2016-11-24 18:26:21,313 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (24)  number of iterations=6
+2016-11-24 18:26:21,313 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (25)  number of iterations=10
+2016-11-24 18:26:21,314 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (26)  number of iterations=13
+2016-11-24 18:26:21,314 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (27)  number of iterations=3
+2016-11-24 18:26:21,314 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (28)  number of iterations=8
+2016-11-24 18:26:21,315 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (29)  number of iterations=8
+2016-11-24 18:26:21,315 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (30)  number of iterations=9
+2016-11-24 18:26:21,315 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (31)  number of iterations=9
+2016-11-24 18:26:21,316 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (32)  number of iterations=10
+2016-11-24 18:26:21,316 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (33)  number of iterations=10
+2016-11-24 18:26:21,316 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (34)  number of iterations=13
+2016-11-24 18:26:21,316 [Thread-1] INFO  marytts.ParameterGeneration Using f0 from maryXML acoustparams
+2016-11-24 18:26:21,317 [Thread-1] INFO  marytts.PStream Context-dependent global variance optimization: gvLength = 141
+2016-11-24 18:26:21,318 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (0)  number of iterations=44
+2016-11-24 18:26:21,318 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (1)  number of iterations=16
+2016-11-24 18:26:21,318 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (2)  number of iterations=4
+2016-11-24 18:26:21,319 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (3)  number of iterations=12
+2016-11-24 18:26:21,319 [Thread-1] INFO  marytts.PStream Gradient GV optimization for feature: (4)  number of iterations=3
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1 Request processed in 54 ms.
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    TextToMaryXML took 0 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    JTokeniser took 2 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    Preprocess took 1 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    OpenNLPPosTagger took 2 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    JPhonemiser took 1 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    Prosody took 1 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    PronunciationModel took 0 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    AcousticModeller took 6 ms
+2016-11-24 18:26:21,320 [Thread-1] INFO  marytts.R 1    Synthesis took 40 ms
+2016-11-24 18:32:27,174 [Thread-6] INFO  marytts.main Shutting down modules...
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.Synthesis Module shut down.
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.TextToMaryXML Module shut down.
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.SableParser Module shut down.
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.SSMLParser Module shut down.
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.APMLParser Module shut down.
+2016-11-24 18:32:27,175 [Thread-6] INFO  marytts.EmotionmlParser Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.DummyTokens2Words Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Prosody Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.TargetFeatureLister Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.AcousticModeller Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Realised acoustparams extractor Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Realised durations extractor Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.HTSEngine Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Praat TextGrid generator Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.JTokeniser Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Preprocess Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.JPhonemiser Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.Prosody Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.SimplePhoneme2AP Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.PronunciationModel Module shut down.
+2016-11-24 18:32:27,176 [Thread-6] INFO  marytts.OpenNLPPosTagger Module shut down.
+2016-11-24 18:32:27,177 [Thread-6] INFO  marytts.main Shutdown complete.
