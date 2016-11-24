@@ -41,15 +41,9 @@ object Delivery {
     where: File,
     firstModules: Seq[String],
     lastModules: Seq[String]
-//    product: NodeSeq
   ) = {
     println(s"delivering ${name} - ${version} to ${where}")
     val rootMap = roots.toMap
-
-//    copySource(
-//      pwd / up / "maven-modules",
-//      Path(where.getAbsoluteFile)
-//    )
 
     val modules =
       what
@@ -61,15 +55,32 @@ object Delivery {
         })
         .distinct
 
-    modules
-      .map(_.container.root)
-      .distinct
-      .foreach({ rmc =>
-        copySource(
-          Path(rootMap(rmc).getAbsoluteFile),
-          Path(where.getAbsoluteFile)
-        )
-      })
+//    modules
+//      .map(_.container.root)
+//      .distinct
+//      .foreach({ rmc =>
+//        copySource(
+//          Path(rootMap(rmc).getAbsoluteFile),
+//          Path(where.getAbsoluteFile)
+//        )
+//      })
+
+    val modulePaths =
+      modules
+        .map({ m =>
+          val root = rootMap(m.container.root)
+          val pathFromRoot = m.pathFromRoot.mkString("/")
+          val sourceFile = new File(root, pathFromRoot)
+          val targetDir = new File(new File(where, root.getName), pathFromRoot).getParentFile
+
+          copySource(
+            Path(sourceFile.getCanonicalFile.getAbsoluteFile),
+            Path(targetDir.getCanonicalFile.getAbsoluteFile)
+          )
+
+          (root.getName +: m.pathFromRoot).mkString("/")
+        })
+
 
     val pp = new PrettyPrinter(1000, 2)
     val pom =
@@ -85,8 +96,8 @@ object Delivery {
         <modules>
           {
           firstModules.map(m => <module>{m}</module>) ++
-          modules.map({ m =>
-            <module>{rootMap(m.container.root).getName}/{m.pathFromRoot.mkString("/")}</module>
+          modulePaths.map({ m =>
+            <module>{m}</module>
           }) ++
           lastModules.map(m => <module>{m}</module>)
           }
