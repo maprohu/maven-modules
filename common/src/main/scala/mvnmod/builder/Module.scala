@@ -58,7 +58,8 @@ case class Module(
   val version: ModuleVersion,
   val deps: Seq[Module],
   val repos: Seq[Repo],
-  val source: Option[NamedModule]
+  val source: Option[NamedModule],
+  val excludes: Set[ModuleId] = Set.empty
 ) {
 
   def depsTransitive : Seq[Module] = {
@@ -409,12 +410,12 @@ object Module {
 
     dir.mkdirs()
 
-    def coords(dep: ModuleVersion) = (
-      <groupId>{dep.moduleId.groupId}</groupId>
-        <artifactId>{dep.moduleId.artifactId}</artifactId>
-        <version>{dep.mavenVersion.toString}</version> &+
-        dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
-      )
+//    def coords(dep: Module) = (
+//      <groupId>{dep.moduleId.groupId}</groupId>
+//        <artifactId>{dep.moduleId.artifactId}</artifactId>
+//        <version>{dep.mavenVersion.toString}</version> &+
+//        dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq
+//      )
 
     val xml =
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -529,10 +530,28 @@ object Module {
           {
           module
             .deps
-            .map(m => m.version)
-            .collect({ case dep : ModuleVersion =>
+            .map({ m =>
+              val dep = m.version
+
               <dependency>
-                {coords(dep)}
+                <groupId>{dep.moduleId.groupId}</groupId>
+                <artifactId>{dep.moduleId.artifactId}</artifactId>
+                <version>{dep.mavenVersion.toString}</version>
+                {dep.moduleId.classifier.map(c => <classifier>{c}</classifier>).toSeq}
+                {
+                if (m.excludes.nonEmpty) {
+                  <exclusions>
+                    {m.excludes.map({ ex =>
+                      <exclusion>
+                        <groupId>{ex.groupId}</groupId>
+                        <artifactId>{ex.artifactId}</artifactId>
+                      </exclusion>
+                    })}
+                  </exclusions>
+                } else {
+                  Seq.empty
+                }
+                }
               </dependency>
             })
           }

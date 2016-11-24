@@ -114,6 +114,26 @@ class MavenCentralModule(
       .toCanonicalForm
   }
 
+  def exclude(
+    modules: Module*
+  ) : Module = {
+    val excludes =
+      modules
+        .map(_.version.moduleId)
+        .toSet
+
+    val m = Module
+      .central2Module(this)
+      .filter({ e =>
+        !excludes.contains(e.version.moduleId)
+      })
+
+    m
+      .copy(
+        excludes = m.excludes ++ excludes
+      )
+  }
+
 }
 
 object GeotoolsMoule {
