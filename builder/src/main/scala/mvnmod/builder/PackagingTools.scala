@@ -21,7 +21,8 @@ object PackagingTools {
         mvn.`org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4`,
         mvn.`org.scala-lang:scala-reflect:jar:2.11.8`,
         mvn.`com.vividsolutions:jts:jar:1.13`,
-        mvn.`org.springframework:spring-core:jar:4.3.3.RELEASE`
+        mvn.`org.springframework:spring-core:jar:4.3.3.RELEASE`,
+        mvn.`com.google.guava:guava:jar:19.0`
       )
       .map(Module.central2Module)
       .map(_.version.moduleId)
