@@ -25,6 +25,7 @@ object RunGenerateMaven {
     "com.typesafe.akka:akka-stream_2.11:jar:2.4.9",
     "com.typesafe.akka:akka-stream_2.11:jar:2.4.11",
     "com.typesafe.akka:akka-stream_2.11:jar:2.4.12",
+    "com.typesafe.akka:akka-stream_2.11:jar:2.4.14",
     "com.typesafe.akka:akka-remote_2.11:jar:2.4.12",
     "com.typesafe.akka:akka-persistence_2.11:jar:2.4.12",
     "com.typesafe.akka:akka-slf4j_2.11:jar:2.3.15",
