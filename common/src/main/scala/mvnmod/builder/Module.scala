@@ -302,11 +302,44 @@ object Module {
 
   val pretty = new PrettyPrinter(300, 4)
 
+  val ModulesModuleName = "modules"
+  val BuildersModuleName = "builders"
+
   def generate(
     roots: collection.Seq[PlacedRoot],
-    configuredModules: collection.Seq[ConfiguredModule]
+    declaredModules: collection.Seq[ConfiguredModule]
   ) : Unit = {
-    val modules = configuredModules.map(_.module)
+    val configuredModules =
+      declaredModules
+        .++(
+          roots
+            .map({ pr =>
+              ConfiguredModule
+                .named2configured(
+                  new NamedModule(
+                    pr.rootContainer,
+                    BuildersModuleName,
+                    MavenCoordinatesImpl(
+                      pr.rootContainer.groupId,
+                      s"${pr.rootContainer.name}-${ModulesModuleName}",
+                      NamedModule.SnapshotVersion
+                    )
+                  )
+                )
+            })
+        )
+
+    roots.foreach { pr =>
+      BuildersGenerator
+        .run(
+          pr,
+          declaredModules
+        )
+    }
+
+    val modules =
+      configuredModules
+        .map(_.module)
 
     val containedContainers =
       modules
@@ -595,6 +628,10 @@ sealed trait ContainedModule {
   def name : String
 }
 
+object NamedModule {
+  val SnapshotVersion = "2-SNAPSHOT"
+}
+
 class NamedModule(
   val container: ModuleContainer,
   val name: String,
@@ -608,7 +645,7 @@ class NamedModule(
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
   def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
-  def version = "2-SNAPSHOT"
+  def version = NamedModule.SnapshotVersion
   def asModule : Module = this
   def pathFromRoot = path.tail
 

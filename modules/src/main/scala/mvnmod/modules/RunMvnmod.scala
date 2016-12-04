@@ -7,12 +7,17 @@ import mvnmod.builder.{Module, ModuleContainer, NamedModule, PlacedRoot}
 
 import scala.collection.immutable._
 
+object Place {
+
+  val RootPath = Seq("..", "maven-modules")
+
+}
 /**
   * Created by pappmar on 29/08/2016.
   */
 object RunMvnmod {
 
-  val RootDir = new File("../maven-modules")
+  val RootDir = new File(Place.RootPath.mkString("/"))
 
   val Roots = Seq[PlacedRoot](
     MvnmodModules.Root -> RootDir
