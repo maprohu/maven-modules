@@ -152,6 +152,29 @@ case class ModulePath(
   }
 }
 
+object ModulePath {
+  implicit def fromModuleSeq[T](seq: collection.Seq[T])(implicit ev: T => Module) : ModulePath = {
+    def fold(s: collection.Seq[Module]) : Option[ModulePath] = {
+      s match {
+        case head +: tail =>
+          Some(
+            ModulePath(
+              head,
+              fold(tail)
+            )
+          )
+        case _ => None
+      }
+    }
+
+    ModulePath(
+      seq.head,
+      fold(seq.tail.map(ev))
+    )
+  }
+
+}
+
 
 
 object Module {
