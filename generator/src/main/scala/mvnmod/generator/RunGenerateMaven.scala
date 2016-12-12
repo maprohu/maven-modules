@@ -169,7 +169,8 @@ object RunGenerateMaven {
     "com.jssrc:jssrc:jar:1.0.1",
     "org.mapdb:mapdb:jar:3.0.2",
     "org.slf4j:log4j-over-slf4j:jar:1.7.21",
-    "com.spatial4j:spatial4j:jar:0.5"
+    "com.spatial4j:spatial4j:jar:0.5",
+    "com.nativelibs4java:jnaerator:jar:0.12"
 
   //    "android-api:android-api:jar:22",
 //    "org.macroid:macroid_2.11:aar:2.0.0-M5"
