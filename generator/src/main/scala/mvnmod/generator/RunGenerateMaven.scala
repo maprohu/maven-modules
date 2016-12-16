@@ -171,7 +171,9 @@ object RunGenerateMaven {
     "org.slf4j:log4j-over-slf4j:jar:1.7.21",
     "com.spatial4j:spatial4j:jar:0.5",
     "com.nativelibs4java:jnaerator:jar:0.12",
-    "net.java.dev.jna:jna:jar:4.2.2"
+    "net.java.dev.jna:jna:jar:4.2.2",
+    "uk.co.caprica:juds:jar:0.94.1",
+    "com.kohlschutter.junixsocket:junixsocket-demo:jar:2.0.4"
 
 
   //    "android-api:android-api:jar:22",
