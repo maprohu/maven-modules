@@ -14,6 +14,7 @@ import scala.util.control.NonFatal
 object RunGenerateMaven {
 
   val artifacts = Seq(
+    "com.android.tools.build:builder:jar:2.2.0",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api:jar:2.2.2",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-spi:jar:2.2.2",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api-maven:jar:2.2.2",
