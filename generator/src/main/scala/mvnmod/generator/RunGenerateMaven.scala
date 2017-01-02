@@ -14,6 +14,8 @@ import scala.util.control.NonFatal
 object RunGenerateMaven {
 
   val artifacts = Seq(
+    "org.jogamp.gluegen:gluegen-rt-main:jar:2.3.2",
+    "org.jogamp.jogl:jogl-all-main:jar:2.3.2",
     "com.android.tools.build:builder:jar:2.2.0",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api:jar:2.2.2",
     "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-spi:jar:2.2.2",
