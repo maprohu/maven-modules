@@ -14,7 +14,9 @@ import scala.util.control.NonFatal
 object RunGenerateMaven {
 
   val artifacts = Seq(
+    "org.jvnet.hyperjaxb3:hyperjaxb3-ejb-plugin:jar:0.6.1",
     "org.xhtmlrenderer:flying-saucer-pdf:jar:9.1.1",
+    "org.jvnet.jaxb2_commons:jaxb2-basics-annotate:jar:1.0.2",
     "com.ibm:couchdb-scala_2.11:jar:0.7.2",
     "org.jogamp.gluegen:gluegen-rt-main:jar:2.3.2",
     "org.jogamp.jogl:jogl-all-main:jar:2.3.2",
