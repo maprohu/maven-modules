@@ -14,6 +14,9 @@ import scala.util.control.NonFatal
 object RunGenerateMaven {
 
   val artifacts = Seq(
+    "org.eclipse.persistence:org.eclipse.persistence.moxy:jar:2.5.2",
+    "org.eclipse.persistence:org.eclipse.persistence.moxy:jar:2.6.4",
+    "net.sf.saxon:Saxon-HE:jar:9.7.0-14",
     "org.jvnet.hyperjaxb3:hyperjaxb3-ejb-plugin:jar:0.6.1",
     "org.xhtmlrenderer:flying-saucer-pdf:jar:9.1.1",
     "org.jvnet.jaxb2_commons:jaxb2-basics-annotate:jar:1.0.2",
