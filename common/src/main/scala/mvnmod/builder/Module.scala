@@ -2,7 +2,7 @@ package mvnmod.builder
 
 import java.io.File
 
-import mvnmod.builder.Module.{ConfiguredModule, DeployableModule, Java8}
+import mvnmod.builder.Module.{ConfiguredModule, DeployableModule, Java7, Java8}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -667,6 +667,7 @@ class NamedModule(
   def groupId = container.root.groupId
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
+  def java7 = ConfiguredModule.named2configured(this).copy(javaVersion = Java7)
   def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
   def version = NamedModule.SnapshotVersion
   def asModule : Module = this
