@@ -2,7 +2,7 @@ package mvnmod.builder
 
 import java.io.File
 
-import mvnmod.builder.Module.{ConfiguredModule, DeployableModule, Java7, Java8}
+import mvnmod.builder.Module.{ConfiguredModule, DeployableModule, Java6, Java7, Java8, JavaVersion}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
 import sbt.io.IO
@@ -311,15 +311,15 @@ object Module {
       ConfiguredModule(
         module,
         module.deps.to[Seq].flatMap(_.repos).distinct,
-        Java6
+        module.javaVersion
       )
     }
 
-    implicit class NamedOps(namedModule: NamedModule) {
-      def java7 : ConfiguredModule = {
-        named2configured(namedModule).copy(javaVersion = Java7)
-      }
-    }
+//    implicit class NamedOps(namedModule: NamedModule) {
+//      def java7 : ConfiguredModule = {
+//        named2configured(namedModule).copy(javaVersion = Java7)
+//      }
+//    }
   }
 
 
@@ -658,8 +658,21 @@ object NamedModule {
 class NamedModule(
   val container: ModuleContainer,
   val name: String,
+  val javaVersion : JavaVersion,
   val deps: Module*
 ) extends ContainedModule with DeployableModule with HasMavenCoordinates {
+
+  def this(
+    container: ModuleContainer,
+    name: String,
+    deps: Module*
+  ) = this(
+    container,
+    name,
+    Java6,
+    deps:_*
+  )
+
   def snapshot = this
 
   def path : Seq[String] = container.path :+ name
@@ -667,8 +680,8 @@ class NamedModule(
   def groupId = container.root.groupId
   def artifactId = path.mkString("-")
   def pkg = path.mkString(".")
-  def java7 = ConfiguredModule.named2configured(this).copy(javaVersion = Java7)
-  def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
+//  def java7 = ConfiguredModule.named2configured(this).copy(javaVersion = Java7)
+//  def java8 = ConfiguredModule.named2configured(this).copy(javaVersion = Java8)
   def version = NamedModule.SnapshotVersion
   def asModule : Module = this
   def pathFromRoot = path.tail
@@ -692,6 +705,7 @@ class NamedModule(
   ) extends NamedModule(
     container,
     name,
+    javaVersion,
     deps:_*
   ) { self =>
     lazy val releaseId = self.getClass.getName.reverse.drop(1).takeWhile(_ != '$').reverse.filter(_.isDigit)
