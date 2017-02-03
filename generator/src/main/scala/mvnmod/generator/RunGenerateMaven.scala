@@ -14,6 +14,7 @@ import scala.util.control.NonFatal
 object RunGenerateMaven {
 
   val artifacts = Seq(
+    "com.fasterxml.jackson.module:jackson-module-scala_2.11:jar:2.8.6",
     "org.eclipse.persistence:org.eclipse.persistence.moxy:jar:2.5.2",
     "org.eclipse.persistence:org.eclipse.persistence.moxy:jar:2.6.4",
     "net.sf.saxon:Saxon-HE:jar:9.7.0-14",
@@ -91,6 +92,7 @@ object RunGenerateMaven {
     "com.lihaoyi:ammonite-ops_2.11:jar:0.7.7",
     "com.lihaoyi:ammonite-ops_2.11:jar:0.7.8",
     "com.lihaoyi:ammonite-ops_2.11:jar:0.8.0",
+    "com.lihaoyi:ammonite-ops_2.11:jar:0.8.2",
     "org.scala-lang.modules:scala-xml_2.11:jar:1.0.6",
     "com.sun.xml.bind:jaxb-xjc:jar:2.2.11",
     "com.sun.xml.bind:jaxb-impl:jar:2.2.11",
