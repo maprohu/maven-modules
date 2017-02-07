@@ -13,6 +13,7 @@ import scala.util.control.NonFatal
   */
 object RunGenerateMaven {
 
+  
   val artifacts = Seq(
 //    "org.apache.hadoop:hadoop-common:jar:2.7.3",
     "org.apache.hadoop:hadoop-hdfs:jar:2.7.3",
