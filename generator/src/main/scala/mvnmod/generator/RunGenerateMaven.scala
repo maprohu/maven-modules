@@ -13,9 +13,9 @@ import scala.util.control.NonFatal
   */
 object RunGenerateMaven {
 
-  
+
   val artifacts = Seq(
-//    "org.apache.hadoop:hadoop-common:jar:2.7.3",
+    "org.apache.hadoop:hadoop-common:jar:2.7.3",
     "org.apache.hadoop:hadoop-hdfs:jar:2.7.3",
     "org.orbisgis:cts:jar:1.4.0",
     "com.fasterxml.jackson.module:jackson-module-scala_2.11:jar:2.8.6",
