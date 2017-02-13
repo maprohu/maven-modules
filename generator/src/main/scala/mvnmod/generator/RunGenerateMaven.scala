@@ -188,6 +188,7 @@ object RunGenerateMaven {
     "org.littleshoot:littleproxy:jar:1.1.0",
     "com.jssrc:jssrc:jar:1.0.1",
     "org.mapdb:mapdb:jar:3.0.2",
+    "org.mapdb:mapdb:jar:3.0.3",
     "org.slf4j:log4j-over-slf4j:jar:1.7.21",
     "com.spatial4j:spatial4j:jar:0.5",
     "com.nativelibs4java:jnaerator:jar:0.12",
