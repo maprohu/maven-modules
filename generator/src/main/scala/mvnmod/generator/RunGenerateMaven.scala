@@ -15,6 +15,7 @@ object RunGenerateMaven {
 
 
   val artifacts = Seq(
+    "net.openhft:chronicle-map:jar:2.4.17",
     "org.apache.hadoop:hadoop-common:jar:2.7.3",
     "org.apache.hadoop:hadoop-hdfs:jar:2.7.3",
     "org.orbisgis:cts:jar:1.4.0",
