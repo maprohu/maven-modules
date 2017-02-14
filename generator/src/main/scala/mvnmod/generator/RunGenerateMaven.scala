@@ -15,6 +15,7 @@ object RunGenerateMaven {
 
 
   val artifacts = Seq(
+    "com.github.davidmoten:rtree:jar:0.7.6",
     "net.openhft:chronicle-map:jar:2.4.17",
     "org.apache.hadoop:hadoop-common:jar:2.7.3",
     "org.apache.hadoop:hadoop-hdfs:jar:2.7.3",
