@@ -19,6 +19,7 @@ object RunGenerateMavenGeo {
     "org.geotools:gt-coverage:jar:11.5",
     "org.geotools:gt-coverage-patched:jar:11.5",
     "org.geotools:gt-epsg-wkt:jar:11.5",
+    "org.geotools:gt-epsg-hsql:jar:11.5",
     "org.geotools:gt-jdbc:jar:11.5"
   )
 
