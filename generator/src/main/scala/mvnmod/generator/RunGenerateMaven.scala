@@ -15,6 +15,7 @@ object RunGenerateMaven {
 
 
   val artifacts = Seq(
+    "com.github.cb372:scalacache-caffeine_2.12:jar:0.9.3",
     "org.osgeo:proj4j:jar:0.1.0",
     "com.github.davidmoten:rtree:jar:0.8-RC10",
     "com.github.davidmoten:rtree:jar:0.7.6",
