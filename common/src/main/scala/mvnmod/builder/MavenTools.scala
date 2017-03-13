@@ -15,7 +15,7 @@ import scala.xml._
 object MavenTools {
 
   lazy val tmpRoot : File = {
-    val file = new File("../sandbox/target/mvntmproot")
+    val file = new File("../maven-modules/target/mvntmproot")
     file.mkdirs()
 
     val dir = Files.createTempDirectory(

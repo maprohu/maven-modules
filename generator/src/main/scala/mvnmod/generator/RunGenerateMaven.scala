@@ -15,6 +15,9 @@ object RunGenerateMaven {
 
 
   val artifacts = Seq(
+    "org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.5.11",
+    "com.typesafe.akka:akka-http_2.12:jar:10.0.4",
+    "javax.websocket:javax.websocket-api:jar:1.1",
     "com.lihaoyi:scalatags_2.12:jar:0.6.3",
     "com.github.cb372:scalacache-caffeine_2.12:jar:0.9.3",
     "org.osgeo:proj4j:jar:0.1.0",
@@ -150,6 +153,8 @@ object RunGenerateMaven {
     "com.fasterxml.jackson.core:jackson-databind:jar:2.7.4",
     "javax.json:javax.json-api:jar:1.0",
     "org.glassfish:javax.json:jar:1.0.4",
+    "org.apache.tomcat.embed:tomcat-embed-core:jar:8.5.11",
+    "org.apache.tomcat.embed:tomcat-embed-jasper:jar:8.5.11",
     "org.apache.tomcat:tomcat-catalina:jar:8.5.5",
     "org.springframework:spring-test:jar:3.2.17.RELEASE",
     "org.apache.activemq:activemq-broker:jar:5.14.1",
