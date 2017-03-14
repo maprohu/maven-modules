@@ -15,6 +15,7 @@ object RunGenerateMaven {
 
 
   val artifacts = Seq(
+    "com.typesafe.scala-logging:scala-logging_2.12:jar:3.5.0",
     "io.monix:monix-execution_2.12:jar:2.2.3",
     "io.monix:monix-eval_2.12:jar:2.2.3",
     "org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.5.11",
