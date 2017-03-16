@@ -143,6 +143,8 @@ class MavenCentralModule(
       )
   }
 
+  def moduleId : ModuleId = ModuleId(groupId, artifactId, classifier)
+
 }
 
 object GeotoolsMoule {
