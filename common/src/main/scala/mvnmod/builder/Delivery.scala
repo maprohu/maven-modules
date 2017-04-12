@@ -3,7 +3,6 @@ package mvnmod.builder
 import java.io.File
 
 import ammonite.ops._
-import sbt.io.IO
 
 import scala.xml.PrettyPrinter
 
@@ -110,8 +109,9 @@ object Delivery {
         </modules>
       </project>
 
-    IO.write(
-      new File(where, "pom.xml"),
+    import ammonite.ops._
+    write.over(
+      Path(where, pwd) /  "pom.xml",
       pp.format(pom)
     )
 

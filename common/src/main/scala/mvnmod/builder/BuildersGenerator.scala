@@ -3,7 +3,6 @@ package mvnmod.builder
 import java.io.File
 
 import mvnmod.builder.Module.ConfiguredModule
-import sbt.io.IO
 
 /**
   * Created by maprohu on 04-12-2016.
@@ -54,8 +53,9 @@ object BuildersGenerator {
         })
         .mkString("\n")
 
-    IO.write(
-      scalaFile,
+    import ammonite.ops._
+    write.over(
+      Path(scalaFile, pwd),
       s"""package ${packageElements.mkString(".")}
          |
          |${buildersCode}

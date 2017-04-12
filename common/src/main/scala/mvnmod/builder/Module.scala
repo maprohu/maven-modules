@@ -5,7 +5,6 @@ import java.io.File
 import mvnmod.builder.Module.{ConfiguredModule, DeployableModule, Java6, Java7, Java8, JavaVersion}
 import org.eclipse.aether.util.version.GenericVersionScheme
 import org.eclipse.aether.version.Version
-import sbt.io.IO
 
 import scala.collection.immutable._
 import scala.xml.PrettyPrinter
@@ -637,9 +636,10 @@ object Module {
     file: File,
     content: String
   ) : Unit = {
-    if (!file.exists() || IO.read(file) != content) {
+    import ammonite.ops._
+    if (!file.exists() || read(Path(file,pwd)) != content) {
       println(s"Writing: ${file}")
-      IO.write(file, content)
+      write.over(Path(file, pwd), content)
     } else {
       println(s"Skipping: ${file}")
     }

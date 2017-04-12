@@ -15,8 +15,7 @@ object MvnmodModules {
     "common",
     mvn.`org.scala-lang.modules:scala-xml_2.11:jar:1.0.6`,
     mvn.`org.eclipse.aether:aether-util:jar:1.1.0`,
-    mvn.`com.lihaoyi:ammonite-ops_2.11:jar:0.7.8`,
-    mvn.`org.scala-sbt:io_2.11:jar:1.0.0-M3`,
+    mvn.`com.lihaoyi:ammonite-ops_2.11:jar:0.8.2`,
     mvn.`org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-api-maven:jar:2.2.2`,
     mvn.`org.apache.maven.shared:maven-invoker:2.2`
   ) {

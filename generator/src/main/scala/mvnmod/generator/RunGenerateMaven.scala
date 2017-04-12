@@ -113,6 +113,7 @@ object RunGenerateMaven {
     "com.lihaoyi:ammonite-ops_2.11:jar:0.7.8",
     "com.lihaoyi:ammonite-ops_2.11:jar:0.8.0",
     "com.lihaoyi:ammonite-ops_2.11:jar:0.8.2",
+    "com.lihaoyi:ammonite-ops_2.12:jar:0.8.2",
     "org.scala-lang.modules:scala-xml_2.11:jar:1.0.6",
     "com.sun.xml.bind:jaxb-xjc:jar:2.2.11",
     "com.sun.xml.bind:jaxb-impl:jar:2.2.11",
@@ -215,7 +216,8 @@ object RunGenerateMaven {
     "com.nativelibs4java:jnaerator:jar:0.12",
     "net.java.dev.jna:jna:jar:4.2.2",
     "uk.co.caprica:juds:jar:0.94.1",
-    "com.kohlschutter.junixsocket:junixsocket-demo:jar:2.0.4"
+    "com.kohlschutter.junixsocket:junixsocket-demo:jar:2.0.4",
+    "org.apache.camel:camel-core:jar:2.13.4"
 
 
   //    "android-api:android-api:jar:22",

@@ -4,7 +4,6 @@ import java.io.File
 import java.nio.file.Files
 
 import org.apache.maven.shared.invoker.{DefaultInvocationRequest, DefaultInvoker}
-import sbt.io.IO
 
 import scala.collection.JavaConversions._
 import scala.xml._
@@ -25,7 +24,8 @@ object MavenTools {
 
     Runtime.getRuntime.addShutdownHook(new Thread() {
       override def run(): Unit = {
-        IO.delete(dir)
+        import ammonite.ops._
+        rm(Path(dir))
       }
     })
 
@@ -201,8 +201,9 @@ object MavenTools {
     val pomFile = new File(dir, "pom.xml")
     val pomString = pp.format(projectDef.pom)
     println(pomString)
-    IO.write(
-      pomFile,
+    import ammonite.ops._
+    write.over(
+      Path(pomFile),
       pomString
     )
 
