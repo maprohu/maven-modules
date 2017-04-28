@@ -166,6 +166,7 @@ object RunGenerateMaven {
     "org.springframework:spring-oxm:jar:4.3.3.RELEASE",
     "com.google.android:android:jar:4.1.1.4",
     "com.lihaoyi:scalatex-site_2.11:jar:0.3.6",
+    "com.lihaoyi:scalatex-site_2.11:jar:0.3.7",
     "org.zeroturnaround:zt-zip:jar:1.9",
     "com.github.scopt:scopt_2.11:jar:3.5.0",
     "org.hid4java:hid4java:jar:0.4.0",

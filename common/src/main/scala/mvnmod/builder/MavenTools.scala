@@ -203,7 +203,7 @@ object MavenTools {
     println(pomString)
     import ammonite.ops._
     write.over(
-      Path(pomFile),
+      Path(pomFile, pwd),
       pomString
     )
 
